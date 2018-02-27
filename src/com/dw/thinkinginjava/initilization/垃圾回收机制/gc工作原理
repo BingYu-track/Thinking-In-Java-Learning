@@ -1,0 +1,47 @@
+GC的工作原理:
+
+  对于工作原理就不得不说说引用计数法：
+      比如说没个对象都有一个计数器,当对象被创建的时候,计数器的数值设置为1,当我们不再使用这个对象的时候,对象已经离开了作用域或者是null的时候,计数器的数值设置为0,
+   然后垃圾回收期在所有的对象列表上进行遍历,然后将计数器为0的对象进行回收,是不是感觉这样的设计还是比较合理的呢？但是其实这种设计是有很大的缺陷的.如果我们的对象之间存在循环调用.
+   那么就会出现,对象应该被回收,但是计数器却不为0的情况.针对这种情况需要具体说一下了.
+
+  引用计数法虽然常用在解释垃圾收集的方式,但是没有一个JVM是使用这种算法的.
+
+代码：
+public class GcDemo {
+
+    public static void main(String[] args) {
+        GcObject obj1 = new GcObject(); //Step 1
+        GcObject obj2 = new GcObject(); //Step 2
+
+        obj1.instance = obj2; //Step 3
+        obj2.instance = obj1; //Step 4
+
+        obj1 = null; //Step 5
+        obj2 = null; //Step 6
+    }
+}
+
+class GcObject{
+    public Object instance = null;
+}
+
+  1：GcObject实例1的引用计数加1，实例1的引用计数=1；
+
+  2：GcObject实例2的引用计数加1，实例2的引用计数=1；
+
+  3：GcObject实例2的引用计数再加1，实例2的引用计数=2；
+
+  4：GcObject实例1的引用计数再加1，实例1的引用计数=2；执行到4，则GcObject实例1和实例2的引用计数都等于2。
+
+  5：栈帧中obj1不再指向Java堆，GcObject实例1的引用计数减1，结果为1；
+
+  6：栈帧中obj2不再指向Java堆，GcObject实例2的引用计数减1，结果为1。到此，发现GcObject实例1和实例2的计数引用都不为0，那么如果采用的引用计数算法的话，
+     那么这两个实例所占的内存将得不到释放，这便产生了内存泄露。
+
+
+
+
+
+
+
