@@ -8,7 +8,7 @@ import java.util.Random;
 public class Bool {
 	
 	public static void main(String[] args) {
-		//左移位操作符：<< 能按照操作符右侧指定的位数将操作符左边的操作数向左移动(在低位补0)
+		//有符号左移位操作符：<< 能按照操作符右侧指定的位数将操作符左边的操作数向左移动(在低位补0)
 		int i = 5;
 		System.out.println("i的二进制："+Integer.toBinaryString(i));//i的二进制：101
 		System.out.println("i左移1位后的二进制："+Integer.toBinaryString(i << 1));//i左移1位后的二进制：1010
