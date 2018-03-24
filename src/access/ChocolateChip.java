@@ -2,7 +2,7 @@ package access;
 
 import access.dessert.Cookie;
 
-public class ChocolateChip extends Cookie{
+public class ChocolateChip extends Cookie{ //这里的Cookie与子类不在同一个包中且bite方法是包访问权限
     public ChocolateChip(){
         System.out.println("ChocolateChip constructor");
     }
