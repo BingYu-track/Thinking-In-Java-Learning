@@ -49,6 +49,15 @@ public class Overloading {
 	void testConstVal() {
 		prt("Testing with 5");
 		f1(5);f2(5);f3(5);f4(5);f5(5);f6(5);f7(5);
+		/*
+		Testing with 5
+		f1(int)
+		f2(int)
+		f3(int)
+		f4(int)
+		f5(long)
+		f6(float)
+		f7(double)*/
 	}
 	
 	void testChar() {
