@@ -18,6 +18,11 @@ public class ReferenceCounting {
                 };
         for(Composing c : composing)
             c.dispose();
+            System.gc();
+        // Verify failure:
+         Composing c = new Composing(new Shared());
+         //c.dispose();
+        System.gc();
     }
     /*执行结果 总结：当一个示例被多个对象共享时，想要清除该共享对象，只有当引用该共享对象的其它对象全部清理掉才会再清理共享对象。
       Creating Shared 0
