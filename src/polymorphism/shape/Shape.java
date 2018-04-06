@@ -9,4 +9,6 @@ public class Shape {
     public void erase(){
 
     }
+
+    public void msg() { System.out.println("Base class msg()"); }
 }

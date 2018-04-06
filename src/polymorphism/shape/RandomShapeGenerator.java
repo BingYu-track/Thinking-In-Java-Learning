@@ -8,7 +8,7 @@ public class RandomShapeGenerator { //随机图形生成器
 
     public Shape next(){
         switch (rand.nextInt(3)){
-            default:
+            default: System.out.println("nothing");
             case 0: return new Circle();
             case 1: return new Square();
             case 2: return new Triangle();
