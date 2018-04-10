@@ -9,7 +9,7 @@ public class FinalOverridingIllusion {
 
         OverridingPrivate op = op2; //OverridingPrivate2继承了OverridingPrivate，因此可以向上转型
         //op.f();
-        //op.g(); 无法调用
+        //op.g(); //无法调用,因为方法为private
         WithFinals wf = op2;
         //wf.f();
         //wf.g(); 同样无法访问
