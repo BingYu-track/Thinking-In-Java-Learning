@@ -1,25 +1,33 @@
 package com.dw.thinkinginjava.initilization;
 
 public class Flower {
-	
 	int petalCount = 0;
 	String s = "initial value";
-	
-	public Flower(int petals) {
+	Flower(int petals) { //petal花瓣
 		petalCount = petals;
-		System.out.println("带int的有参构造，参数petalCount ="+petalCount);
+		System.out.println("Constructor w/ int arg only, petalCount= " + petalCount);
 	}
-	
-	public Flower(String ss){
-		System.out.println("带String的有参构造,s="+ss);
+	Flower(String ss) {
+		System.out.println("Constructor w/ String arg only, s = " + ss);
 		s = ss;
 	}
-
-	public Flower(String s,int petals) {
+	Flower(String s, int petals) {
 		this(petals);
+		//! this(s); //用this只能调用一次构造器并且必须位于首行
+		this.s = s; // Another use of "this"
+		System.out.println("String & int args");
+	}
+	Flower() {
+		this("hi", 47);
+		System.out.println("default constructor (no args)");
+	}
+	void printPetalCount() {
+	//! this(11); // 编译器报错，没有在构造器内
+		System.out.println("petalCount = " + petalCount + " s = "+ s);
+	}
+	public static void main(String[] args) {
+		Flower x = new Flower();
+		x.printPetalCount();
 	}
 
-	void print(){
-		
-	}
 }
