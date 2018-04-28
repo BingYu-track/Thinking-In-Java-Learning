@@ -1,5 +1,10 @@
 package interfaces.exercise;
 
+/**
+* @Description:适配器模式
+* @Author:hxw
+* @Date:2018/4/28 11:32
+*/
 public class Cycles {
 
     public static void getCycleWheelNum(CycleFactory factory){
