@@ -12,7 +12,9 @@ public class Parcel10 {
                     System.out.println("Over budget!");
             }
             private String label = dest;
-            public String readLabel() { return label; }
+            public String readLabel() {
+                return label;
+            }
         };
     }
     public static void main(String[] args) {
