@@ -81,6 +81,4 @@ public class Sequence3 {
         }
     }
 
-    //1 2
-    //3
 }
