@@ -18,6 +18,6 @@ public class AsListInference {
         List<Snow> snow3 = new ArrayList<Snow>();
         Collections.addAll(snow3, new Light(), new Heavy());
         // Give a hint using an explicit type argument specification:
-        List<Snow> snow4 = Arrays.<Snow>asList(new Light(), new Heavy());
+        List<Snow> snow4 = Arrays.<Snow>asList(new Light(), new Heavy()); //这里进行显示声明，就不会报java1.7时的错误了
     }
 }
