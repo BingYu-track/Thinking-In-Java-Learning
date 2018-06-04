@@ -16,8 +16,7 @@ public class E04_MovieNameGenerator {
         }
         return array;
     }
-    static Collection<String>
-    fill(Collection<String> collection) {
+    static Collection<String> fill(Collection<String> collection) {
         for(int i = 0; i < 5; i++){
             collection.add(mng.next());
         }
