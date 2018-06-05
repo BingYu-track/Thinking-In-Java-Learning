@@ -16,8 +16,8 @@ public class ListFeatures {
         Random rand = new Random(47);
         List<Pet> pets = Pets.arrayList(7);  //返回一个填充了随机选取的Pet对象的ArrayList:
         System.out.println("1: " + pets);
-        Hamster h = new Hamster();
-        pets.add(h); // Automatically resizes
+        Hamster h = new Hamster();  //仓鼠
+        pets.add(h); // 自动调整大小
         System.out.println("2: " + pets);
         System.out.println("3: " + pets.contains(h));
         pets.remove(h); // Remove by object
@@ -29,15 +29,15 @@ public class ListFeatures {
         // Must be the exact object:
         System.out.println("7: " + pets.remove(p));
         System.out.println("8: " + pets);
-        pets.add(3, new Mouse()); // Insert at an index
+        pets.add(3, new Mouse()); // 将对象插入指定索引
         System.out.println("9: " + pets);
-        List<Pet> sub = pets.subList(1, 4);
+        List<Pet> sub = pets.subList(1, 4); //截取list形成一个小列表(左包含，右不包含)
         System.out.println("subList: " + sub);
-        System.out.println("10: " + pets.containsAll(sub));
+        System.out.println("10: " + pets.containsAll(sub));  //是否包含一个小列表
         Collections.sort(sub); // In-place sort
         System.out.println("sorted subList: " + sub);
         // Order is not important in containsAll():
-        System.out.println("11: " + pets.containsAll(sub));
+        System.out.println("11: " + pets.containsAll(sub)); //如果列表包含指定 collection 的所有元素，则返回 true,不关心排序
         Collections.shuffle(sub, rand); // Mix it up
         System.out.println("shuffled subList: " + sub);
         System.out.println("12: " + pets.containsAll(sub));
