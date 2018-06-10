@@ -43,8 +43,8 @@ public class ListFeatures {
         System.out.println("12: " + pets.containsAll(sub)); //12: true
         List<Pet> copy = new ArrayList<Pet>(pets); //复制一份列表
         sub = Arrays.asList(pets.get(1), pets.get(4));
-        System.out.println("sub: " + sub);
-        copy.retainAll(sub); //移除此 sub 中未包含在指定 collection 中的所有元素。 
+        System.out.println("sub: " + sub); //sub: [Mouse, Pug]
+        copy.retainAll(sub); //移除此 sub 中未包含在指定 collection 中的所有元素,即取交集。
         System.out.println("13: " + copy); //13: [Mouse, Pug]
         copy = new ArrayList<Pet>(pets); // Get a fresh copy
         copy.remove(2); // Remove by index 根据下标移除元素
