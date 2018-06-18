@@ -7,6 +7,6 @@ package holding;
 */
 class Light extends Powder {
    public static void main(String[] args){
-
+      System.out.println();
    }
 }
