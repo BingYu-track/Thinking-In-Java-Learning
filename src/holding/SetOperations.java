@@ -2,6 +2,7 @@ package holding;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -28,5 +29,11 @@ public class SetOperations {
         System.out.println("set2 removed from set1: " + set1); //set2 removed from set1: [A, B, C, D, E, F, G, M]
         Collections.addAll(set1, "X Y Z".split(" "));
         System.out.println("‘X Y Z’ added to set1: " + set1); //‘X Y Z’ added to set1: [A, B, C, D, E, F, G, M, X, Y, Z]
+
+        Iterator<String> iterator = set1.iterator();
+        while (iterator.hasNext()){ //遍历Set
+            String next = iterator.next();
+            System.out.print(next+" "); //A B C D E F G M X Y Z
+        }
     }
 }
