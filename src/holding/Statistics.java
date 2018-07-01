@@ -6,7 +6,7 @@ import java.util.Random;
 
 /**
  * @version 1.0
- * @Description:
+ * @Description: 用map测试Random类的随机性
  * @author: hxw
  * @date: 2018/6/24 21:17
  */
