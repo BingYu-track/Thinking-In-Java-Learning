@@ -14,7 +14,7 @@
  */
 package holding;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * @Description:
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class Test {
 
     public static void main(String[] args){
-        ArrayList<Integer> listdb = new ArrayList<>(); //模拟已选择的列表(db)
+        /*ArrayList<Integer> listdb = new ArrayList<>(); //模拟已选择的列表(db)
         listdb.add(1);
         listdb.add(2);
         listdb.add(3);
@@ -44,6 +44,14 @@ public class Test {
         listdbcopy1.retainAll(listPage);
         System.out.println("需要编辑的id:"+listdbcopy1);
         listPage.removeAll(listdbcopy1);
-        System.out.println("新增的id："+listPage);
+        System.out.println("新增的id："+listPage);*/
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        queue.offer(8);
+        queue.offer(5);
+        queue.offer(7);
+        queue.offer(9);
+        queue.offer(6);
+        queue.offer(1);
+        System.out.println(queue);
     }
 }
