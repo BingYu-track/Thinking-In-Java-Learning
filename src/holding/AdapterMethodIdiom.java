@@ -17,7 +17,7 @@ public class AdapterMethodIdiom {
             System.out.print(s + " ");
         }
         System.out.println();
-        // Hand it the Iterable of your choice
+        //反向遍历
         for(String s : ral.reversed()){
             System.out.print(s + " ");
         }

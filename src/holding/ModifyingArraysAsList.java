@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * @version 1.0
- * @Description: 直接d打乱用Arrays.asList数组生成的List会改变底层的数组
+ * @Description: 直接打乱用Arrays.asList数组生成的List会改变底层的数组
  * @author: hxw
  * @date: 2018/7/5 13:01
  */

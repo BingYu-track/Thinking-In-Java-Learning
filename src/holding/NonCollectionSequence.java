@@ -23,6 +23,7 @@ public class NonCollectionSequence extends PetSequence {
             }
         };
     }
+
     public static void main(String[] args) {
         NonCollectionSequence nc = new NonCollectionSequence();
         InterfaceVsIterator.display(nc.iterator());
