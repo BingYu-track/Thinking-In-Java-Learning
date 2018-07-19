@@ -8,10 +8,13 @@ package exceptions;
  */
 public class StormyInning extends Inning implements Storm {
 
-    //可以为构造函数添加异常，但是在创建对象时必须处理构造函数的异常
+    //在构造函数中，异常限制不存在---"可以抛出比父类构造器宽泛的异常"。但是由于在调用构造器之前会调用父类的构造器，因此子类构造器必须包含父类构造器声明的异常，否则编译器报错
     public StormyInning() throws RainedOut, BaseballException {
 
     }
+
+    //  public StormyInning() throws RainedOut{} //Compile error
+
     public StormyInning(String s) throws Foul, BaseballException {
 
     }
@@ -39,7 +42,7 @@ public class StormyInning extends Inning implements Storm {
 
      }
 
-    // 实现了继承自Inning抽象类的方法，可以引发继承的异常：
+    // 实现了继承自Inning抽象类的方法，用于PopFoul异常继承父类方法atBat抛出的异常Foul，因此Inning i = new StormyInning(); i.atBat()可以捕获PopFoul异常
     public void atBat() throws PopFoul {
 
     }
@@ -58,11 +61,10 @@ public class StormyInning extends Inning implements Storm {
         }
         // Strike not thrown in derived version.
         try {
-        // What happens if you upcast?
+        // 向上进行了转型
             Inning i = new StormyInning();
             i.atBat();
-        // You must catch the exceptions from the
-        // base-class version of the method:
+        // 这时捕获的异常就是父类方法里声明的异常了
         } catch(Strike e) {
             System.out.println("Strike");
         } catch(Foul e) {
