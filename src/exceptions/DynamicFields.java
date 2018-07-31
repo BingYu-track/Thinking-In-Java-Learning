@@ -108,7 +108,7 @@ public class DynamicFields {
             // 使用带有"cause"的构造器
             throw new RuntimeException(e);
         }
-        //将只也设置进去
+        //将值也设置进去
         fields[fieldNumber][1] = value;
         return result;
     }
