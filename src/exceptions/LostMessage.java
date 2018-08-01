@@ -21,7 +21,7 @@ public class LostMessage {
            try {
                 lm.f();
             } finally {
-                lm.dispose(); //在catch f()方法中抛出的异常之前又抛出了另一个异常
+                lm.dispose(); //这样特殊使用finally子句,f()方法中抛出的异常之前又抛出了另一个异常会丢失之前的异常信息
             }
         } catch(Exception e) {
             System.out.println(e); //A trivial exception

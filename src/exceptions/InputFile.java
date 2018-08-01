@@ -22,7 +22,7 @@ public class InputFile {
             //........................
         } catch(FileNotFoundException e) {
             System.out.println("Could not open " + fname);
-            // 当捕获到FileNotFoundException说明文件没有打开，所以不需要要关闭流
+            // 当捕获到FileNotFoundException说明文件没有打开，所以不需要关闭流
             throw e;
         } catch(Exception e) {
             //而当捕获到所有其他异常时(不是FileNotFoundException)说明文件已经打开，那么必须关闭该流。
