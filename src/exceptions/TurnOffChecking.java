@@ -13,9 +13,9 @@ public class TurnOffChecking {
 
     public static void main(String[] args){
         WrapCheckedException wce = new WrapCheckedException();
-        // 您可以在不使用try块的情况下调用throwRuntimeException()，并让RuntimeExceptions离开该方法:
+        // 您可以在不使用try块的情况下调用throwRuntimeException()，因为RuntimeException不强制要求捕获，即使发生了异常，控制台也会打出原始异常信息
         wce.throwRuntimeException(3);
-        //或者你可以选择捕获异常:
+        //或者你可以选择捕获特定异常:
         for(int i = 0; i < 4; i++){
             try {
                 if(i < 3)
