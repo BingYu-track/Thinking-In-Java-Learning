@@ -7,8 +7,9 @@ public class Hex {
     StringBuilder result = new StringBuilder();
     int n = 0;
     for(byte b : data) {
-      if(n % 16 == 0)
+      if(n % 16 == 0){
         result.append(String.format("%05X: ", n));
+      }
       result.append(String.format("%02X ", b));
       n++;
       if(n % 16 == 0) result.append("\n");
