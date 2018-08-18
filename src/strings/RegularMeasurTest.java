@@ -41,8 +41,8 @@ public class RegularMeasurTest {
         Pattern pattern = Pattern.compile(p);
         Matcher matcher = pattern.matcher(str);
         while (matcher.find()){
-            System.out.println("当前匹配子串: "+ matcher.group()+"; 开始位置: "+matcher.start()+"; 结束位置: "+matcher.end());
-            //贪婪型--当前匹配子串: [google][1],this is [apple][2],and this is [ms][3]; 开始位置: 8; 结束位置: 58
+            System.out.println("当前匹配子串: "+ matcher.group()+"; 开始位置: "+matcher.start()+"; 结束位置: "+ (matcher.end()-1));
+            //贪婪型--当前匹配子串: [google][1],this is [apple][2],and this is [ms][3]; 开始位置: 8; 结束位置: 57
         }
     }
     /*
