@@ -23,11 +23,11 @@ public class PatternAndMatcher {
           2.find()方法是部分匹配，是查找输入串中与模式匹配的子串
         */
         boolean t = Pattern.matches(regex, str);
-        boolean t1 = str.matches(regex1);
-        boolean t2 = Pattern.matches(regex1, str);
+        boolean t1 = str.matches(regex1);  //String.matches()
+        boolean t2 = Pattern.matches(regex1, str); //Pattern.matches(regex,input)
         System.out.println("t:"+t); //false  因为Pattern.matches(regex,input)是整个匹配，明显regex正则不匹配。regex1则匹配
         System.out.println("str.matches:"+t1+"; Pattern.matches:"+t2); //str1.matches:true; Pattern.matches:true
-        /*从上面例子指定String.matches()与Pattern.matches(regex,input)和Pattern.compile(regex).matcher(input).matches()等效
+        /*从上面例子知道String.matches()与Pattern.matches(regex,input)和Pattern.compile(regex).matcher(input).matches()等效
          都是全部匹配。
         */
     }
