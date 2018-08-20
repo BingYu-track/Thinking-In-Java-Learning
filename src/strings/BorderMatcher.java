@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 /**
  * @version 1.0
- * @Description: 单词边界与非单词边界
+ * @Description: 单词边界\b与非单词边界\B
  * @author: hxw
  * @date: 2018/8/19 21:06
  */
