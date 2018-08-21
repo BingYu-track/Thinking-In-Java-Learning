@@ -10,8 +10,8 @@ import org.junit.Test;
  */
 public class BackReference {
 
-    // \1：表示的是引用第一次匹配到的()括起来的部分。
-    // \2：表示的是引用第二次匹配到的()括起来的部分。
+    // \\1：表示的是引用第一次匹配到的()括起来的部分。
+    // \\2：表示的是引用第二次匹配到的()括起来的部分。
     @Test
     public void test1(){
         String regex = "^([ab])\\1$";
