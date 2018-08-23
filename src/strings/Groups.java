@@ -41,11 +41,4 @@ public class Groups {
         //组0是ABCD，组1是BC，组2是C
     }
 
-    /**
-     * 找出不以大写字母开头的词
-     */
-    @Test
-    public void testUpcase(){
-
-    }
 }
