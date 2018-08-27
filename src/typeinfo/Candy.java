@@ -10,4 +10,8 @@ import static net.mindview.util.Print.print;
  */
 class Candy {
     static { print("Loading Candy"); }
+
+    public Candy() {
+        System.out.println("init");
+    }
 }
