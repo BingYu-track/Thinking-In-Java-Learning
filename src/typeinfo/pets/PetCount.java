@@ -10,7 +10,7 @@ import static net.mindview.util.Print.*;
  */
 public class PetCount {
 
-    //静态内部类
+    //静态内部类，继承了HashMap
     static class PetCounter extends HashMap<String,Integer> {
         public void count(String type) {
             Integer quantity = get(type);
