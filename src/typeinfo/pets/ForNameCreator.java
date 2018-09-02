@@ -14,7 +14,7 @@ public class ForNameCreator extends PetCreator {
     "typeinfo.pets.Rat",
     "typeinfo.pets.Mouse",
     "typeinfo.pets.Hamster"
-  };	
+  };
   @SuppressWarnings("unchecked")
   private static void loader() {
     try {
@@ -28,7 +28,8 @@ public class ForNameCreator extends PetCreator {
     }
   }
   static {
-    loader(); //静态初始化时调用loader方法
+    loader(); //静态初始化时调用loader方法 (注意这里要注意static语句的顺序，由于loader方法里用到了静态变量types和typeNames，为了避免空指针异常，该static语句
+    //必须放在其它静态变量后面 )
   }
 
   public List<Class<? extends Pet>> types() {

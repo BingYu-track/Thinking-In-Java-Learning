@@ -17,7 +17,7 @@ public class PetCount {
             if(quantity == null){
                 put(type, 1);
             } else{
-                put(type, quantity + 1);
+                put(type, quantity + 1); //存在key,其值增加1
             }
         }
     }

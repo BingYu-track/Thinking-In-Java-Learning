@@ -1,7 +1,6 @@
 package innerclasses;
 
 public class Parcel2 {
-
     //内部类
     class Contents {
         private int i = 11;

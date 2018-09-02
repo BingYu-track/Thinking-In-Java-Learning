@@ -2,6 +2,8 @@ package innerclasses;
 
 public class Parcel3 {
 
+    //private static Contents s = new Contents();
+
     class Contents {
         private int i = 11;
         public int value() { return i; }

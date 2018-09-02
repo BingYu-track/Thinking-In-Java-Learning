@@ -8,7 +8,7 @@ package typeinfo;
  */
  class Initable {
 
-    static final int staticFinal = 47; //編譯时常量
+    static final int staticFinal = 47; //编译时常量
     static final int staticFinal2 =  ClassInitialization.rand.nextInt(1000); //运行时常量
     static {
         System.out.println("Initializing Initable");
