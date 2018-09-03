@@ -4,8 +4,7 @@ package typeinfo.pets;
 import java.util.*;
 
 public class Pets {
-  public static final PetCreator creator =
-    new LiteralPetCreator();
+  public static final PetCreator creator = new LiteralPetCreator();
   public static Pet randomPet() {
     return creator.randomPet();
   }
