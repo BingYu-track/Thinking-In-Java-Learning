@@ -3,6 +3,7 @@ package typeinfo;
 import typeinfo.factory.Factory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -28,6 +29,7 @@ class Part {
         partFactories.add(new FanBelt.Factory());
         partFactories.add(new PowerSteeringBelt.Factory());
         partFactories.add(new GeneratorBelt.Factory());
+        //Collections.addAll(partFactories,new FuelFilter.Factory(),new AirFilter.Factory(),new FanBelt.Factory());
     }
     private static Random rand = new Random(47);
     public static Part createRandom() {
