@@ -2,7 +2,7 @@ package typeinfo;
 
 /**
  * @version 1.0
- * @Description: 动态代理
+ * @Description: 静态代理
  * @author: hxw
  * @date: 2018/9/9 19:51
  */
