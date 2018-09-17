@@ -27,7 +27,7 @@ public class ShowMethods {
         }
         int lines = 0;
         try {
-            Class<?> c = Class.forName(args[0]); //此时我们完全不知道args[0]的内容是什么；只有在运行的时候动态传进去
+            Class<?> c = Class.forName(args[0]); //此时我们完全不知道args[0]的内容是什么；只有在运行的时候动态传进去(此时这就是反射)
             Method[] methods = c.getMethods();  //返回该类的所有public修饰的方法(包括从父类继承来的)
             Constructor[] ctors = c.getConstructors(); //返回所有public修饰的构造器(如果该类没有公共构造方法，或者该类是一个数组类，或者该类反映一个基本类型或 void，则返回一个长度为 0 的数组)
             if(args.length == 1) {

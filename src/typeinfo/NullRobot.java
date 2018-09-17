@@ -19,10 +19,7 @@ public class NullRobot {
     }
 
     public static void main(String[] args) {
-        Robot[] bots = {
-                new SnowRemovalRobot("SnowBee"),
-                newNullRobot(SnowRemovalRobot.class)
-        };
+        Robot[] bots = {new SnowRemovalRobot("SnowBee"), newNullRobot(SnowRemovalRobot.class)}; //newNullRobot方法返回一个代理对象
         for(Robot bot : bots){
             Robot.Test.test(bot);
         }

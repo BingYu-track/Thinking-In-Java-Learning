@@ -16,6 +16,14 @@ class DynamicProxyHandler implements InvocationHandler {
         this.proxied = proxied;
     }
 
+    /**
+     * 当代理对象执行任何方法时都会重定向到这里并执行该方法
+     * @param proxy
+     * @param method
+     * @param args
+     * @return
+     * @throws Throwable
+     */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("**** proxy: " + proxy.getClass() + ", method: " + method + ", args: " + args);
@@ -25,7 +33,7 @@ class DynamicProxyHandler implements InvocationHandler {
             }
         }
         long start = System.nanoTime();
-        Object ret = method.invoke(proxied, args);
+        Object ret = method.invoke(proxied, args); //proxied是从外界传递的真实对象(即需要aop的对象)
         long duration = System.nanoTime() - start;
         System.out.println("METHOD-CALL TIME: " + duration);
         return ret;
