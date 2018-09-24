@@ -1,6 +1,11 @@
 //: net/mindview/util/ThreeTuple.java
 package net.mindview.util;
 
+/**
+* @Description: 元祖
+* @Author:hxw
+* @Date:2018/9/24 10:47
+*/
 public class ThreeTuple<A,B,C> extends TwoTuple<A,B> {
   public final C third;
   public ThreeTuple(A a, B b, C c) {
