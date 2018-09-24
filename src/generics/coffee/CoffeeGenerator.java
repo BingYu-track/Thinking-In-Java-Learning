@@ -4,24 +4,34 @@ package generics.coffee;
 import java.util.*;
 import net.mindview.util.*;
 
-public class CoffeeGenerator
-implements Generator<Coffee>, Iterable<Coffee> {
-  private Class[] types = { Latte.class, Mocha.class,
-    Cappuccino.class, Americano.class, Breve.class, };
-  private static Random rand = new Random(47);
-  public CoffeeGenerator() {}
+public class CoffeeGenerator implements Generator<Coffee>, Iterable<Coffee> {
+
+  private Class[] types = { Latte.class, Mocha.class, Cappuccino.class, Americano.class, Breve.class, };
+  private static Random rand = new Random( 47);
   // For iteration:
   private int size = 0;
-  public CoffeeGenerator(int sz) { size = sz; }	
+
+  public CoffeeGenerator() {
+
+  }
+
+  public CoffeeGenerator(int sz) {
+    size = sz;
+  }
+
+
+
   public Coffee next() {
     try {
-      return (Coffee)
-        types[rand.nextInt(types.length)].newInstance();
+      Coffee coffee = (Coffee) types[rand.nextInt(types.length)].newInstance();
+      return coffee;
       // Report programmer errors at run time:
     } catch(Exception e) {
       throw new RuntimeException(e);
     }
   }
+
+  //内部类
   class CoffeeIterator implements Iterator<Coffee> {
     int count = size;
     public boolean hasNext() { return count > 0; }
@@ -32,10 +42,13 @@ implements Generator<Coffee>, Iterable<Coffee> {
     public void remove() { // Not implemented
       throw new UnsupportedOperationException();
     }
-  };	
+  }
+
+  //实现Iterable接口
   public Iterator<Coffee> iterator() {
     return new CoffeeIterator();
   }
+
   public static void main(String[] args) {
     CoffeeGenerator gen = new CoffeeGenerator();
     for(int i = 0; i < 5; i++)
