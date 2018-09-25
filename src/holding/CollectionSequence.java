@@ -7,7 +7,7 @@ import java.util.*;
 
 /**
  * @version 1.0
- * @Description:
+ * @Description: 如果实现Collection需要实现许多方法，这里如果可以继承AbstractCollection就省略了很多
  * @author: hxw
  * @date: 2018/7/4 7:44
  */

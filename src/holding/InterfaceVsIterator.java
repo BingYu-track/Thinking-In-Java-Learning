@@ -21,7 +21,7 @@ public class InterfaceVsIterator {
         System.out.println();
     }
     public static void display(Collection<Pet> pets) {
-        for(Pet p : pets){  //实际调用的是iterator方法
+        for(Pet p : pets){  //实际调用的仍是iterator方法
             System.out.print(p.id() + ":" + p + " ");
         }
         System.out.println();

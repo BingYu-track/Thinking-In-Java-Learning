@@ -5,7 +5,7 @@ import java.util.*;
 
 /**
  * @version 1.0
- * @Description:
+ * @Description: 提供创建迭代器的能力
  * @author: hxw
  * @date: 2018/7/4 8:10
  */
