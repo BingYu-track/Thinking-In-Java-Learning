@@ -28,7 +28,7 @@ public class CoffeeGenerator implements Generator<Coffee>, Iterable<Coffee> {
  //实现Generator接口的next方法
   public Coffee next() {
     try {
-      Coffee coffee = (Coffee) types[rand.nextInt(types.length)].newInstance();
+      Coffee coffee = (Coffee) types[rand.nextInt(types.length)].newInstance(); //随机生成不同类型的Coffee对象
       return coffee;
       // Report programmer errors at run time:
     } catch(Exception e) {
@@ -39,7 +39,7 @@ public class CoffeeGenerator implements Generator<Coffee>, Iterable<Coffee> {
   //内部类实现Iterator接口
   class CoffeeIterator implements Iterator<Coffee> {
     int count = size;
-    public boolean hasNext() { return count > 0; }
+    public boolean hasNext() { return count > 0; } //如果长度不再大于0则，遍历停止
     public Coffee next() {
       count--;
       return CoffeeGenerator.this.next();

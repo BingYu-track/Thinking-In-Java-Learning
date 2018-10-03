@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 /**
  * @version 1.0
- * @Description: 适配器模式
+ * @Description: 通过继承创建适配器类，这样就相当于把Fibonacci包装了一层，不再需要重新写一个类(当然也可以使用组和)
  * @author: hxw
  * @date: 2018/9/25 22:44
  */
