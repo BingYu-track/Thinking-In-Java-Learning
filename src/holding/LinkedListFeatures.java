@@ -23,7 +23,7 @@ public class LinkedListFeatures {
         System.out.println("pets.getFirst(): " + pets.getFirst()); //pets.getFirst(): Rat
         System.out.println("pets.element(): " + pets.element()); //pets.element(): Rat
         // Only differs in empty-list behavior(仅在空列表行为中有所不同):
-        System.out.println("pets.peek(): " + pets.peek()); //pets.peek(): Rat 这里空列表返回null,上面两个报异常
+        System.out.println("pets.peek(): " + pets.peek()); //pets.peek(): Rat 如果是空列表该方法返回null,上面两个方法报NoSuchElementException异常
         System.out.println("--------------------------");
 
         // Identical; 移除并返回第一个元素

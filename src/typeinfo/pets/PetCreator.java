@@ -30,7 +30,7 @@ public abstract class PetCreator {
 
   public ArrayList<Pet> arrayList(int size) {
     ArrayList<Pet> result = new ArrayList<Pet>();
-    Collections.addAll(result, createArray(size));
+    Collections.addAll(result, createArray(size)); //将所有指定元素添加到指定 collection result中
     return result;
   }
 
