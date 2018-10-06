@@ -15,6 +15,15 @@ import net.mindview.util.*;
  * @date: 2018/10/5 12:45
  */
 public class Generators {
+
+    /**
+     *
+     * @param coll 容器
+     * @param gen 对象的生成器
+     * @param n 对象数量
+     * @param <T>
+     * @return
+     */
     public static <T> Collection<T> fill(Collection<T> coll, Generator<T> gen, int n) {
         for(int i = 0; i < n; i++)
             coll.add(gen.next());
