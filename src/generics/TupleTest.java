@@ -3,6 +3,7 @@ package generics;
 import net.mindview.util.FiveTuple;
 import net.mindview.util.FourTuple;
 import net.mindview.util.ThreeTuple;
+import net.mindview.util.TwoTuple;
 
 /**
  * @version 1.0
