@@ -9,7 +9,7 @@ package generics;
 public class Manipulator<T> {
     private T obj;
     public Manipulator(T x) { obj = x; }
-    // Error: cannot find symbol: method f(): 编译错误，泛型对象obj找不到f()方法
+    // Error: cannot find symbol: method f(): 编译错误，正是由于擦除，泛型对象obj找不到f()方法
     public void manipulate() {
         //obj.f();
     }
