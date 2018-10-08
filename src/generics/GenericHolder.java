@@ -1,8 +1,10 @@
 package generics;
 
+import java.io.Serializable;
+
 /**
  * @version 1.0
- * @Description:
+ * @Description: 泛型的动作
  * @author: hxw
  * @date: 2018/10/8 21:36
  */
@@ -22,7 +24,10 @@ public class GenericHolder<T> {
         String s = holder.get();
     }
     /*
-    加上泛型后反编译，泛型加泛型和不加泛型反编译后的字节码是相同的，我们调用set时是编译器自动帮我们转为Object
+    加上泛型后反编译，泛型加泛型和不加泛型反编译后的字节码是相同的，实际上，这里两个类型产生的字节码是一致的。对进入set()
+    的检查是不需要的，编译器会进行。但从get()返回的值的强转却是需要的，只不过：在 SimpleHolder，强转需要手动进行，
+    而在GenericHolder中 强转是由编译器自动插入的。可见：泛型中所有动作都是发生在边界处—–对传进来的值进行额外编译期检查，
+    并插入对传递出去的值的转型。这里的边界就是指的发生 “传进来”(set)、 “传出去“”(get)动作的地方。
 public class generics.GenericHolder<T> {
   public generics.GenericHolder();
     Code:
