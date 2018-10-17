@@ -21,7 +21,7 @@ public class GenericHolder<T> {
     public static void main(String[] args) {
         GenericHolder<String> holder = new GenericHolder<String>();
         holder.set("Item");
-        String s1 = holder.get();
+        String s = holder.get();
     }
     /*
     加上泛型后反编译，泛型加泛型和不加泛型反编译后的字节码是相同的，实际上，这里两个类型产生的字节码是一致的。对进入set()
