@@ -2,7 +2,7 @@ package generics;
 
 /**
  * @version 1.0
- * @Description:
+ * @Description: 使用类型参数，代码变的更通用
  * @author: hxw
  * @date: 2018/9/23 19:51
  */

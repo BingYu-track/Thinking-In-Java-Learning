@@ -2,7 +2,7 @@ package generics;
 
 /**
  * @version 1.0
- * @Description: 明确指定了其持有对象的类型Automobile
+ * @Description: 明确指定了其持有对象的类型Automobile，代码约束性很强
  * @author: hxw
  * @date: 2018/9/23 19:02
  */

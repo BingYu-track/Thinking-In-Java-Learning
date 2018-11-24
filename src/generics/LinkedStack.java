@@ -9,7 +9,7 @@ package generics;
 public class LinkedStack<T> {
 
     /**
-     * 末端哨兵
+     * 末端哨兵(item和next都是null)
      */
     private Node<T> top = new Node<T>(); // End sentinel
 

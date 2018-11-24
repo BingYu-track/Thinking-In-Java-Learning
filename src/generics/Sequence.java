@@ -9,7 +9,8 @@ package generics;
 class Sequence<T> {
 
     private Object[] items;
-    private int next;
+    private int next; //初始为0(一个游标
+    // )
     public Sequence(int size) {
         items = new Object[size];
     }
@@ -19,8 +20,9 @@ class Sequence<T> {
             items[next++] = x;
     }
 
+    //迭代器设计模式
     private class SequenceSelector implements Selector<T> {
-        private int i;
+        private int i; //Selector游标，用来保存当前遍历的元素位置
 
         public boolean end() {
             return i == items.length;
@@ -41,4 +43,17 @@ class Sequence<T> {
         return new SequenceSelector();
     }
 
+    public static void main(String[] args){
+        Sequence<Integer> sequence = new Sequence<>(10);
+        sequence.add(1);
+        sequence.add(2);
+        sequence.add(3);
+        sequence.add(4);
+        Selector<Integer> selector = sequence.selector();
+        while (!selector.end()){
+            Integer current = selector.current();
+            System.out.println(current);
+            selector.next();
+        }
+    }
 }

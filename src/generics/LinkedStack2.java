@@ -10,7 +10,7 @@ public class LinkedStack2<T> {
 
     private Node top = new Node(); // End sentinel
 
-    private class Node { //对比之前内部类去掉了泛型，发现内部类可以访问外部类泛型的"类型参数"
+    private class Node { //对比之前内部类去掉了泛型，发现内部类可以直接访问外部类泛型的"类型参数"
         T item;
         Node next;
 
