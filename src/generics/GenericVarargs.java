@@ -1,5 +1,6 @@
 package generics;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,5 +24,7 @@ public class GenericVarargs {
         System.out.println(ls);
         ls = makeList("ABCDEFFHIJKLMNOPQRSTUVWXYZ".split(""));
         System.out.println(ls);
+        List<?> list = makeList("A", "B", 3, 2.3, true);
+        System.out.println(list);
     }
 }

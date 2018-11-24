@@ -8,7 +8,7 @@ import java.util.Map;
 
 /**
  * @version 1.0
- * @Description: 显示类型说明解决 generics.LimitsOfInference类中编译器报错的问题，基本很少用知道即可
+ * @Description: 显示类型说明解决在jdk1.7中 generics.LimitsOfInference类中编译器报错的问题，基本很少用知道即可
  * @author: hxw
  * @date: 2018/10/4 21:43
  */

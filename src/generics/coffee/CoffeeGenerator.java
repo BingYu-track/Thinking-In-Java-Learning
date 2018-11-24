@@ -9,8 +9,16 @@ import net.mindview.util.*;
 * @Author:hxw
 * @Date:2018/9/25 22:33
 */
-public class CoffeeGenerator implements Generator<Coffee>, Iterable<Coffee> {
+public class CoffeeGenerator implements Generator<Coffee>, Iterable<Coffee> {//这里CoffeeGenerator类实现的接口已经传入了泛型实参，所以类CoffeeGenerator可以不声明泛型
 
+  //重要：当实现泛型接口的类，未传入泛型实参，声明类的时候，需将泛型的声明也一起加到类中
+  private class Test<T> implements Generator<T>{
+
+      @Override
+      public T next() {
+          return null;
+      }
+  }
   private Class[] types = { Latte.class, Mocha.class, Cappuccino.class, Americano.class, Breve.class, };
   private static Random rand = new Random(47);
   // For iteration:
