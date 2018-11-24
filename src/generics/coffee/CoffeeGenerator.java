@@ -12,7 +12,7 @@ import net.mindview.util.*;
 public class CoffeeGenerator implements Generator<Coffee>, Iterable<Coffee> {
 
   private Class[] types = { Latte.class, Mocha.class, Cappuccino.class, Americano.class, Breve.class, };
-  private static Random rand = new Random( 47);
+  private static Random rand = new Random(47);
   // For iteration:
   private int size = 0;
 
@@ -39,7 +39,9 @@ public class CoffeeGenerator implements Generator<Coffee>, Iterable<Coffee> {
   //内部类实现Iterator接口
   class CoffeeIterator implements Iterator<Coffee> {
     int count = size;
-    public boolean hasNext() { return count > 0; } //如果长度不再大于0则，遍历停止
+    public boolean hasNext() {
+        return count > 0;
+    } //如果长度不再大于0则，遍历停止
     public Coffee next() {
       count--;
       return CoffeeGenerator.this.next();
