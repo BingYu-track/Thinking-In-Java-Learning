@@ -4,7 +4,7 @@ import net.mindview.util.Generator;
 
 /**
  * @version 1.0
- * @Description:
+ * @Description: 柜员
  * @author: hxw
  * @date: 2018/10/6 18:25
  */
