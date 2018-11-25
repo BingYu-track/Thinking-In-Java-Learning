@@ -10,8 +10,8 @@ public class Erased<T> {
     private final int SIZE = 100;
     public static void f(Object arg) {
         /*if(arg instanceof T) {} // Error 在这里使用instanceof报错，因为类型信息已经被擦除;但是我们可以引入类型标签转而使用动态的isInstance()方法来补偿
-        T var = new T(); // Error
-        T[] array = new T[SIZE]; // Error
+        T var = new T(); // Error 无法创建泛型对象
+        T[] array = new T[SIZE]; // Error 无法创建泛型数组
         T[] array = (T)new Object[SIZE]; // Unchecked warning*/
     }
 }

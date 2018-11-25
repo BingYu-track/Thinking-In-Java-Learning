@@ -10,6 +10,7 @@ import static net.mindview.util.Print.*;
  */
 public class ClassTypeCapture2 {
     Map<String,Class<?>> types = new HashMap<String,Class<?>>();//存储类型名称和类型信息
+
     public Object createNew(String typename) {
         Class<?> cl = types.get(typename);
         try {
