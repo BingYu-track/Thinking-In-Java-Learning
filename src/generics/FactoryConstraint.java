@@ -2,7 +2,7 @@ package generics;
 
 /**
  * @version 1.0
- * @Description:
+ * @Description:显式工厂
  * @author: hxw
  * @date: 2018/11/25 16:28
  */

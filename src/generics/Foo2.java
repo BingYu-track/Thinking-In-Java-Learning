@@ -8,6 +8,7 @@ package generics;
  */
 class Foo2<T> {
     private T x;
+    //F为工厂
     public <F extends FactoryI<T>> Foo2(F factory) {
         x = factory.create();
     }

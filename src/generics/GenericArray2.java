@@ -2,7 +2,7 @@ package generics;
 
 /**
  * @version 1.0
- * @Description:
+ * @Description: 优化代码GenericArray
  * @author: hxw
  * @date: 2018/11/25 23:47
  */
@@ -24,7 +24,7 @@ public class GenericArray2<T> {
 
     @SuppressWarnings("unchecked")
     public T[] rep() {
-        return (T[])array; // Warning: unchecked cast 这样做可以更好的提醒程序员，其实际类型是Object
+        return (T[])array; // Warning: unchecked cast 仍然会报错，但这样做可以更好的提醒程序员，其实际类型是Object
     }
 
     public static void main(String[] args) {
@@ -36,7 +36,7 @@ public class GenericArray2<T> {
             System.out.print(gai.get(i) + " ");
         System.out.println();
         try {
-            Integer[] ia = gai.rep();
+            Integer[] ia = gai.rep();//仍然会报错
         } catch(Exception e) { System.out.println(e); }
     }
 

@@ -7,7 +7,7 @@ package generics;
  * @date: 2018/11/25 16:45
  */
 abstract class GenericWithCreate<T> {
-    final T element;
+    final T element; //待创建的泛型对象
     //模板方法
     GenericWithCreate() {
         element = create();

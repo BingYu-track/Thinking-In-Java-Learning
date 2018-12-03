@@ -57,7 +57,7 @@ public class GenericFruit {
         //编译器会报错，因为泛型类型实参指定的是Fruit，而传入的实参类是Person
         //generateTest.show_1(person);
 
-        //使用这两个方法都可以成功
+        //使用这两个方法都可以成功(因为show_2是一个泛型方法，与GenerateTest类的泛型无关)
         generateTest.show_2(apple);
         generateTest.show_2(person);
 
