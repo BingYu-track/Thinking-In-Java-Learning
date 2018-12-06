@@ -34,10 +34,10 @@ public class Holder<T> {
         Fruit p = fruit.get(); //get方法只返回Fruit类型，因为编译器从<? extends Fruit>唯一确定的信息就是Fruit，如果编译器了解更多具体信息，那么就可以转型到具体的某种Fruit类型
         d = (Apple)fruit.get(); // Returns ‘Object’
         try {
-            Orange c = (Orange)fruit.get(); // No warning但存在ClassCastException风险
+            Orange c = (Orange)fruit.get(); // 这样转型没有警告，但存在ClassCastException风险
         } catch(Exception e) { System.out.println(e); }
-        // fruit.set(new Apple()); // Cannot call set() 无法使用set方法
-        // fruit.set(new Fruit()); // Cannot call set()
-        System.out.println(fruit.equals(d)); // OK
+        // fruit.set(new Apple()); //无法使用set方法 因为此时fruit的set()方法参数为? extends Fruit，因此无法传入任何类型的实参
+        // fruit.set(new Fruit()); //无法使用set方法
+        System.out.println(fruit.equals(d)); // OK 因为参数列表为Object类型
     }
 }
