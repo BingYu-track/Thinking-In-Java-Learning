@@ -2,7 +2,7 @@ package generics;
 
 /**
  * @version 1.0
- * @Description:
+ * @Description: 普通数组支持协变
  * @author: hxw
  * @date: 2018/12/3 23:30
  */
