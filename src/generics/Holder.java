@@ -18,6 +18,10 @@ public class Holder<T> {
         value = val;
     }
 
+    public void set1(Object val){
+        value = (T)val;
+    }
+
     public T get() {
         return value;
     }
@@ -38,6 +42,7 @@ public class Holder<T> {
         } catch(Exception e) { System.out.println(e); }
         // fruit.set(new Apple()); //无法使用set方法 因为此时fruit的set()方法参数为? extends Fruit，因此无法传入任何类型的实参
         // fruit.set(new Fruit()); //无法使用set方法
+        fruit.set1(new Apple()); //使用set1方法可以，因为set1参数是用Object来接受
         System.out.println(fruit.equals(d)); // OK 因为参数列表为Object类型
     }
 }

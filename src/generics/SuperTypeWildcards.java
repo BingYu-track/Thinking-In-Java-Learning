@@ -28,5 +28,6 @@ public class SuperTypeWildcards {
         apples.add(new Apple());
         apples.add(new Jonathan());
         // apples.add(new Fruit()); // Error
+        //为什么超类型的通配符可以添加 https://www.imooc.com/article/details/id/21108
     }
 }

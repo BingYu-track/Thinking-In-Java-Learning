@@ -25,5 +25,13 @@ public class GenericsAndCovariance {
         flist.add(null); // 合法却无意义
         // We know that it returns at least Fruit: 但允许你返回对象
         Fruit f = flist.get(0);
+        //List<T extends Fruit> h = new ArrayList<>();//注意这种写法是错误的，List已经是一个泛型类了，在创建List对象时向泛型中再传入泛型，明显不对,只有在声明时才能使用泛型参数T，例如下面的
+        //泛型方法，以及常见的泛型类，在创建泛型类的实例时，泛型必须传入的是特定的类型，要不就不传，决不能再次传入泛型。
+
+    }
+
+    public static <T extends Fruit> void test(){
+
     }
 }
+
