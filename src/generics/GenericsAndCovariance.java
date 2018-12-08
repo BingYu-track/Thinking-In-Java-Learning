@@ -18,7 +18,7 @@ public class GenericsAndCovariance {
         //上面无法直接向数组那样，但如果加上通配符，就允许,但是这样做就无法向其添加任何类型的对象
         List<? extends Fruit> flist = new ArrayList<Apple>();
         // Compile Error: can’t add any type of object:编译错误无法添加任何对象
-        // 因为此时add()方法的参数变成? Extends Fruit,编译器并不知道这是什么类型，会拒绝对参数列表中涉及通配符方法的调用
+        // 因为此时add()方法的参数变成? Extends Fruit,编译器并不知道这是什么类型，所以无法'安全'的向其中添加对象,因此add 方法不能添加任何有意义的元素
         //flist.add(new Apple());
         // flist.add(new Fruit());
         // flist.add(new Object());
