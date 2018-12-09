@@ -41,7 +41,7 @@ public class Holder<T> {
         try {
             Orange c = (Orange)fruit.get(); // 这样转型没有警告，但存在ClassCastException风险
         } catch(Exception e) { System.out.println(e); }
-         //fruit.set(new Apple()); //无法使用set方法 因为此时fruit的set()方法参数为? extends Fruit，编译器无法确定fruit所持有的类型，所以无法'安全'的向其中添加对象
+        // fruit.set(new Apple()); //无法使用set方法 因为此时fruit的set()方法参数为? extends Fruit，编译器无法确定fruit所持有的类型，所以无法'安全'的向其中添加对象
         // fruit.set(new Fruit()); //无法使用set方法
         fruit.set1(new Apple()); //使用set1方法可以，因为set1参数是用Object来接受
         System.out.println(fruit.equals(d)); // OK 因为参数列表为Object类型
