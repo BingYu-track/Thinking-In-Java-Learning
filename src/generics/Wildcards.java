@@ -1,5 +1,6 @@
 package generics;
 
+import net.mindview.util.CountingGenerator;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -57,6 +58,7 @@ public class Wildcards {
     }
 
     public static void main(String[] args){
+        Holder<Integer> raw1 = new Holder();
         Holder raw = new Holder<Long>();
         // Or:
         raw = new Holder();
@@ -72,9 +74,10 @@ public class Wildcards {
         unboundedArg(qualified, lng);
         unboundedArg(unbounded, lng);
         unboundedArg(bounded, lng);
-        Object r1 = exact1(raw); // Warnings: Unchecked conversion from Holder to Holder<T> Unchecked method invocation: exact1(Holder<T>) is applied to (Holder)
+        Object r1 = exact1(raw); //向切确的泛型参数传入原生引用会得到警告信息,因为确切的参数是期望得到原始类型中不存在的信息
+        // Warnings: Unchecked conversion from Holder to Holder<T> Unchecked method invocation: exact1(Holder<T>) is applied to (Holder)
         Long r2 = exact1(qualified);
-        Object r3 = exact1(unbounded); // 必须返回Object
+        Object r3 = exact1(unbounded); //向切确的泛型参数传入无界引用 必须返回Object
         Long r4 = exact1(bounded);  //必须返回Long或Long的父类
         Long r5 = Wildcards.exact2(raw, lng);// Warnings: Unchecked conversion from Holder to Holder<Long> Unchecked method invocation: exact2(Holder<T>,T) is applied to (Holder,Long)
 // 由于raw是原生Holder，而exact2()方法由于传了lng，因此此时exact2()方法的参数泛型是Holder<Long>，因此报警告
@@ -84,7 +87,10 @@ public class Wildcards {
          Long r9 = wildSubtype(raw,lng); // Warnings: Unchecked conversion from Holder to Holder<? extends Long> Unchecked method invocation: wildSubtype(Holder<? extends T>,T) is applied to (Holder,Long)
         Long r10 = wildSubtype(qualified, lng);
         // OK, but can only return Object:
-        Object r11 = wildSubtype(unbounded,lng);//Holder<?> unbounded,Long    (Holder<? extends T> holder, T arg)
+        Object r11 = wildSubtype(unbounded,lng);//这里之所以是Object，是因为泛型的一个机制导致的，由于传的unbounded是带无界通配符，
+        // 编译器不知道这是什么类型，因此当做Object来处理，而第二个参数传的是Double类型，为了保持泛型类型的一致性，从而将取两者的公共Object
+
+        Number number1 = wildSubtype(raw1, lng);//同上
         Long r12 = wildSubtype(bounded, lng); // Holder<? extends Long> bounded
         // wildSupertype(raw, lng); // Warnings:
         // Unchecked conversion from Holder
@@ -99,13 +105,14 @@ public class Wildcards {
         // wildSupertype(bounded, lng); // Error:
         // wildSupertype(Holder<? super T>,T) cannot be
         // applied to (Holder<capture of ? extends Long>,Long)
-        Double d = new Double(2);
         List<?> list = new ArrayList<>();
-
+        Object obj = test1(list); //这行代码证明了，无界通配符是以Object处理的
     }
 
-    @Test
-    public static  <T> void test1(List<? extends T> a, T b){
 
+
+
+    public static <T> T test1(List<? extends T> a){
+        return a.get(0);
     }
 }
