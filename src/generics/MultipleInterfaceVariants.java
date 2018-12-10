@@ -2,7 +2,7 @@ package generics;
 
 /**
  * @version 1.0
- * @Description:
+ * @Description: 一个类不能同时实现一个泛型接口的两种变体
  * @author: hxw
  * @date: 2018/12/11 0:35
  */
