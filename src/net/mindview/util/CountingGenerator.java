@@ -31,7 +31,11 @@ public class CountingGenerator {
     private int length = 7;
     Generator<java.lang.Character> cg = new Character();
     public String() {}
-    public String(int length) { this.length = length; }
+
+    public String(int length) {
+      this.length = length;
+    }
+
     public java.lang.String next() {
       char[] buf = new char[length];
       for(int i = 0; i < length; i++)
