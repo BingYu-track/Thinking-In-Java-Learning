@@ -12,13 +12,16 @@
  * accordance with the terms of the license agreement you entered into
  * with e-dewin.com.
  */
-package generics;
+package generics.exception;
+
+import java.util.List;
 
 /**
- * @Description: 泛型类不能继承Throwable
+ * @Description:
  * @author: hxw
  * @version 1.0
- * @date: 2018/12/16 20:12
+ * @date: 2018/12/16 20:55
  */
-/*public class MyException<E> extends Exception{ //complier error: Generic class may not extend 'java.lang.Throwable'
-}*/
+interface Processor<T,E extends Exception,F extends Exception> {
+    void process(List<T> resultCollector) throws E, F;
+}
