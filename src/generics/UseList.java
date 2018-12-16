@@ -10,6 +10,6 @@ import java.util.List;
  */
 public class UseList<W,T> {
 
-    //void f(List<T> v) {} //由于擦除，该方法会产生相同类型的签名(即T和W都擦除成了Object)
-    void f(List<W> v) {}
+    //void f(T v) {} //由于擦除，该方法会产生相同类型的签名(即T和W都擦除成了Object)
+    void f(W v) {}
 }

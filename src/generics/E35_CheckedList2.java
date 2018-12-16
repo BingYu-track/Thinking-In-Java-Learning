@@ -23,7 +23,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * @Description:
+ * @Description: 动态类型安全检查
  * @author: hxw
  * @version 1.0
  * @date: 2018/12/16 16:36
