@@ -2,6 +2,6 @@ package generics;
 
 interface DerivedGetter extends OrdinaryGetter{
 
-    // Return type of overridden method is allowed to vary:
+    // 重写接口 Base get() 方法，允许返回Base的子类
     Derived get();
 }
