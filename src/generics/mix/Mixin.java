@@ -15,7 +15,7 @@
 package generics.mix;
 
 /**
- * @Description: 使用接口代理达到混型效果，但不足的一点是需要每个混入类型都需要一个域
+ * @Description: 通过实现多个接口，来达到混型效果，但不足的一点是需要每个混入类型都需要一个域
  * @author: hxw
  * @version 1.0
  * @date: 2018/12/17 12:34
