@@ -17,7 +17,7 @@ package generics.mix.decorator;
 import java.awt.*;
 
 /**
- * @Description:
+ * @Description: 巧克力咖啡
  * @author: hxw
  * @version 1.0
  * @date: 2018/12/17 21:25

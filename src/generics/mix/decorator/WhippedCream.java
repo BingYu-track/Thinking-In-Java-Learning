@@ -1,7 +1,7 @@
 package generics.mix.decorator;
 
 /**
- * @Description:
+ * @Description: 奶油咖啡
  * @author: hxw
  * @version 1.0
  * @date: 2018/12/17 21:27
