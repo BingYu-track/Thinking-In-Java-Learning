@@ -20,7 +20,7 @@ package generics.mix;
  * @version 1.0
  * @date: 2018/12/17 12:33
  */
-class BasicImp implements Basic{
+public class BasicImp implements Basic{
 
     private String value;
     public void set(String val) {

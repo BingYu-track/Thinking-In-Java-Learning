@@ -18,7 +18,7 @@ class DynamicProxyHandler implements InvocationHandler {
 
     /**
      * 当代理对象执行任何方法时都会重定向到这里并执行该方法
-     * @param proxy
+     * @param proxy 这个proxy是最终生成的代理对象
      * @param method
      * @param args
      * @return

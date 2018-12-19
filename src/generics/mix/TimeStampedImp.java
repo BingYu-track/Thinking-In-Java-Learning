@@ -22,7 +22,7 @@ import java.util.Date;
  * @version 1.0
  * @date: 2018/12/16 21:29
  */
-class TimeStampedImp implements TimeStamped{
+public class TimeStampedImp implements TimeStamped{
     private final long timeStamp;
     public TimeStampedImp() {
         timeStamp = new Date().getTime();

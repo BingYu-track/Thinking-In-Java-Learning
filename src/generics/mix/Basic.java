@@ -20,7 +20,7 @@ package generics.mix;
  * @version 1.0
  * @date: 2018/12/17 12:32
  */
-interface Basic {
+public interface Basic {
 
     public void set(String val);
     public String get();

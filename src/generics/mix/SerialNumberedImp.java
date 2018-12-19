@@ -20,7 +20,7 @@ package generics.mix;
  * @version 1.0
  * @date: 2018/12/17 12:32
  */
-class SerialNumberedImp implements SerialNumbered {
+public class SerialNumberedImp implements SerialNumbered {
     private static long counter = 1;
     private final long serialNumber = counter++;
     public long getSerialNumber() {
