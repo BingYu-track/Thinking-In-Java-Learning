@@ -20,6 +20,6 @@ import java.awt.Color;
  * @version 1.0
  * @date: 2018/12/17 12:44
  */
-interface Colored {
+public interface Colored {
     Color getColor();
 }

@@ -23,7 +23,7 @@ import java.util.Random;
  * @version 1.0
  * @date: 2018/12/17 12:45
  */
-class ColoredImp implements Colored{
+public class ColoredImp implements Colored{
     private static Random rnd = new Random(47);
     private final Color clr = new Color(rnd.nextInt(16777216)); // 2^24
     public Color getColor() {

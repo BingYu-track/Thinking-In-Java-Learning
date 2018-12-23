@@ -1,29 +1,29 @@
 package generics.mix.dynamicproxies;
 
 import generics.mix.*;
-import net.mindview.util.*;
-import static net.mindview.util.Tuple.*;
 
+import static net.mindview.util.Tuple.*;
 /**
  * @version 1.0
  * @Description:
  * @author: hxw
- * @date: 2018/12/18 23:08
+ * @date: 2018/12/23 18:40
  */
-public class DynamicProxyMixin {
-
+public class DynamicProxyMixin2 {
     public static void main(String[] args) {
-        //获取所有接口混合的代理对象，此时该代理对象成功混合了Basic、TimeStamped、SerialNumbered三个接口，这三个接口的方法这个代理对象都可以调用
         Object mixin = MixinProxy.newInstance(
                 tuple(new BasicImp(), Basic.class),
                 tuple(new TimeStampedImp(), TimeStamped.class),
-                tuple(new SerialNumberedImp(),SerialNumbered.class));
+                tuple(new SerialNumberedImp(),SerialNumbered.class),
+                tuple(new ColoredImp(), Colored.class));
         Basic b = (Basic)mixin;
         TimeStamped t = (TimeStamped)mixin;
         SerialNumbered s = (SerialNumbered)mixin;
+        Colored c = (Colored)mixin;
         b.set("Hello");
         System.out.println(b.get());
         System.out.println(t.getStamp());
         System.out.println(s.getSerialNumber());
+        System.out.println(c.getColor());
     }
 }
