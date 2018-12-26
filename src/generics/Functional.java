@@ -137,36 +137,36 @@ public class Functional {
     }
 
     public static void main(String[] args){
-        // Generics, varargs & boxing working together:
+        // Generics, varargs & boxing working together: 泛型，可变参数可以一起工作
         List<Integer> li = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
-        Integer result = reduce(li, new IntegerAdder());
-        print(result);
-        result = reduce(li, new IntegerSubtracter());
-        print(result);
-        print(filter(li, new GreaterThan<Integer>(4)));
-        print(forEach(li, new MultiplyingIntegerCollector()).result());
-        print(forEach(filter(li, new GreaterThan<Integer>(4)), new MultiplyingIntegerCollector()).result());
-        MathContext mc = new MathContext(7);
+        Integer result = reduce(li, new IntegerAdder()); //传入求和函数
+        print(result); //28
+        result = reduce(li, new IntegerSubtracter()); //传入差函数
+        print(result); // -26
+        print(filter(li, new GreaterThan<Integer>(4))); //传入初始值为4的比较大小函数并返回大于该值的数字 [5, 6, 7]
+        print(forEach(li, new MultiplyingIntegerCollector()).result()); //5040 传入乘法函数  forEach(li, new MultiplyingIntegerCollector())返回计算好的函数
+        print(forEach(filter(li, new GreaterThan<Integer>(4)), new MultiplyingIntegerCollector()).result()); //210    求[5, 6, 7]的乘积
+        MathContext mc = new MathContext(7); //设置数字精度为7位
         List<BigDecimal> lbd = Arrays.asList(new BigDecimal(1.1, mc), new BigDecimal(2.2, mc),
                                 new BigDecimal(3.3, mc), new BigDecimal(4.4, mc));
-        BigDecimal rbd = reduce(lbd, new BigDecimalAdder());
-        print(rbd);
-        print(filter(lbd, new GreaterThan<BigDecimal>(new BigDecimal(3))));
+        BigDecimal rbd = reduce(lbd, new BigDecimalAdder()); //传入BigDecimal的求和函数
+        print(rbd); //11.000000
+        print(filter(lbd, new GreaterThan<BigDecimal>(new BigDecimal(3)))); //[3.300000, 4.400000]
         // Use the prime-generation facility of BigInteger:
         List<BigInteger> lbi = new ArrayList<BigInteger>();
         BigInteger bi = BigInteger.valueOf(11);
         for(int i = 0; i < 11; i++) {
             lbi.add(bi);
-            bi = bi.nextProbablePrime();
+            bi = bi.nextProbablePrime(); // 返回大于此bi的可能为素数的第一个整数
         }
-        print(lbi);
+        print(lbi); //[11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
         BigInteger rbi = reduce(lbi, new BigIntegerAdder());
-        print(rbi);
+        print(rbi); //311
         // The sum of this list of primes is also prime:
-        print(rbi.isProbablePrime(5));
+        print(rbi.isProbablePrime(5)); //判断是否素数
         List<AtomicLong> lal = Arrays.asList(new AtomicLong(11), new AtomicLong(47), new AtomicLong(74), new AtomicLong(133));
-        AtomicLong ral = reduce(lal, new AtomicLongAdder());
-        print(ral);
-        print(transform(lbd,new BigDecimalUlp()));
+        AtomicLong ral = reduce(lal, new AtomicLongAdder()); //传入原子求和函数
+        print(ral); //265
+        print(transform(lbd,new BigDecimalUlp())); //[0.000001, 0.000001, 0.000001, 0.000001]
     }
 }
