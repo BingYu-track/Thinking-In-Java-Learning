@@ -32,7 +32,7 @@ public class Functional {
     //接受一个函数对象并在列表中的每个对象上调用它，忽略返回值。函数对象可能充当一个收集参数，因此它将在最后返回。
     public static <T> Collector<T> forEach(Iterable<T> seq, Collector<T> func) {
         for(T t : seq){
-            func.function(t); //Collector只有MultiplyingIntegerCollector实现，从1开始乘
+            func.function(t);//Collector只有MultiplyingIntegerCollector实现，从1开始乘
         }
         return func;
     }
