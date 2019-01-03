@@ -21,15 +21,16 @@ public class CountingGenerator {
 
   public static class Character implements Generator<java.lang.Character> {
     int index = -1;
+    //不断返回的大小写字母
     public java.lang.Character next() {
-      index = (index + 1) % chars.length;
+      index = (index + 1) % chars.length; //这里不断对26*2=52进行取余，再小于52之前，取余数都是其自身，当刚好(index + 1)等于52时，整除取余为0，因此index重新等于0了，开始重头开始
       return chars[index];
     }
   }
 
   public static class String implements Generator<java.lang.String> {
     private int length = 7;
-    Generator<java.lang.Character> cg = new Character();
+    Generator<java.lang.Character> cg = new Character(); //内部持有Character
     public String() {}
 
     public String(int length) {
@@ -39,7 +40,7 @@ public class CountingGenerator {
     public java.lang.String next() {
       char[] buf = new char[length];
       for(int i = 0; i < length; i++)
-        buf[i] = cg.next();
+        buf[i] = cg.next();//使用Character来填充char数组
       return new java.lang.String(buf);
     }
   }
