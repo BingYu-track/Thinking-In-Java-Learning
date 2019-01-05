@@ -8,7 +8,7 @@ public class RandomGenerator {
 
   public static class Boolean implements Generator<java.lang.Boolean> {
     public java.lang.Boolean next() {
-      return r.nextBoolean();
+      return r.nextBoolean(); //返回下一个伪随机数，它是取自此随机数生成器序列的均匀分布的 boolean 值
     }
   }
 
@@ -20,8 +20,7 @@ public class RandomGenerator {
 
   public static class Character implements Generator<java.lang.Character> {
     public java.lang.Character next() {
-      return CountingGenerator.chars[
-        r.nextInt(CountingGenerator.chars.length)];
+      return CountingGenerator.chars[r.nextInt(CountingGenerator.chars.length)]; //从CountingGenerator中的char数组中随机选择一个
     }
   }
 
@@ -37,6 +36,7 @@ public class RandomGenerator {
       }
 
   }
+
   public static class Short implements Generator<java.lang.Short> {
     public java.lang.Short next() {
       return (short)r.nextInt();
@@ -64,7 +64,6 @@ public class RandomGenerator {
   }
 
   public static class Float implements Generator<java.lang.Float> {
-
     public java.lang.Float next() {
       // Trim all but the first two decimal places:
       int trimmed = Math.round(r.nextFloat() * 100);
@@ -72,10 +71,12 @@ public class RandomGenerator {
     }
 
   }
+
   public static class Double implements Generator<java.lang.Double> {
     public java.lang.Double next() {
       long trimmed = Math.round(r.nextDouble() * 100);
       return ((double)trimmed) / 100;
     }
   }
+
 } ///:~
