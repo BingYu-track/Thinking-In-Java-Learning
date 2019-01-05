@@ -1,8 +1,13 @@
 //: net/mindview/util/RandomGenerator.java
 // Generators that produce random values.
 package net.mindview.util;
+import org.junit.Test;
+
 import java.util.*;
 
+/**
+ * 随机生成器
+ */
 public class RandomGenerator {
   private static Random r = new Random(47);
 
@@ -32,7 +37,7 @@ public class RandomGenerator {
       public String() {}
 
       public String(int length) {
-        super(length);
+        super(length); //调用的CountingGenerator.String构造方法
       }
 
   }
@@ -48,7 +53,7 @@ public class RandomGenerator {
     public Integer() {}
     public Integer(int modulo) { mod = modulo; }
     public java.lang.Integer next() {
-      return r.nextInt(mod);
+      return r.nextInt(mod); //返回一个伪随机数，它是取自此随机数生成器序列的、在 0（包括）和指定值（不包括）之间均匀分布的 int 值。
     }
   }
 
@@ -66,7 +71,7 @@ public class RandomGenerator {
   public static class Float implements Generator<java.lang.Float> {
     public java.lang.Float next() {
       // Trim all but the first two decimal places:
-      int trimmed = Math.round(r.nextFloat() * 100);
+      int trimmed = Math.round(r.nextFloat() * 100); // Math.round()返回最接近的整数(四舍五入)
       return ((float)trimmed) / 100;
     }
 
@@ -79,4 +84,12 @@ public class RandomGenerator {
     }
   }
 
+  @Test
+  public void test(){
+    int round = Math.round(5.5f);
+    System.out.println(round);
+  }
+
 } ///:~
+
+

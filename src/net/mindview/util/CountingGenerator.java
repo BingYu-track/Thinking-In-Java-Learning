@@ -2,6 +2,9 @@
 // Simple generator implementations.
 package net.mindview.util;
 
+/**
+ * 计数生成器
+ */
 public class CountingGenerator {
 
   public static class Boolean implements Generator<java.lang.Boolean> {
