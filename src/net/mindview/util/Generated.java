@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.*;
 
 public class Generated {
-  // Fill an existing array: 接受已有的空数组和Generator，然后填充它,Generator代表填充策略
+  // Fill an existing array: 接受已有的空数组a和Generator，通过new CollectionData<T>(gen, a.length)创建了List后然后填充a,Generator代表填充策略
   public static <T> T[] array(T[] a, Generator<T> gen) {
     return new CollectionData<T>(gen, a.length).toArray(a); //toArray(T[] a) 这里a主要是确定返回时数组的类型
   }
