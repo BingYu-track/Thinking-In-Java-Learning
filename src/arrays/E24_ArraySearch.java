@@ -12,6 +12,7 @@ import static net.mindview.util.Print.*;
 public class E24_ArraySearch {
 
     public static void main(String[] args) {
+        //匿名内部类创建Comparator接口，排序规则：比较data的值，小的在前，大的在后
         Comparator<DataHolder> comp = new Comparator<DataHolder>() {
                     public int compare(DataHolder o1, DataHolder o2) {
                         return (o1.data < o2.data ? -1 :
