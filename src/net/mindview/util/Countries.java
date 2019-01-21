@@ -37,8 +37,7 @@ public class Countries {
             {"SWAZILAND","Mbabane"}, {"TANZANIA","Dodoma"},
             {"TOGO","Lome"}, {"TUNISIA","Tunis"},
             {"UGANDA","Kampala"},
-            {"DEMOCRATIC REPUBLIC OF THE CONGO (ZAIRE)",
-                    "Kinshasa"},
+            {"DEMOCRATIC REPUBLIC OF THE CONGO (ZAIRE)", "Kinshasa"},
             {"ZAMBIA","Lusaka"}, {"ZIMBABWE","Harare"},
             // Asia
             {"AFGHANISTAN","Kabul"}, {"BAHRAIN","Manama"},
@@ -130,30 +129,38 @@ public class Countries {
             {"TRINIDAD AND TOBAGO","Port of Spain"},
             {"URUGUAY","Montevideo"}, {"VENEZUELA","Caracas"},
     };
-    // Use AbstractMap by implementing entrySet()
+    // Use AbstractMap by implementing entrySet() 使用AbstractMap必须实现entrySet()方法
     private static class FlyweightMap extends AbstractMap<String,String> {
 
         /**
-         * FlyweightMap的静态内部类
+         * FlyweightMap的私有静态内部类Entry实现了Map.Entry接口，作为自定义映射 (必须实现getKey()、getValue()和 setValue(V value)方法)
          */
         private static class Entry implements Map.Entry<String,String> {
             int index;
             Entry(int index) { this.index = index; }
 
-            public boolean equals(Object o) { return DATA[index][0].equals(o); }
+            public boolean equals(Object o) {
+                return DATA[index][0].equals(o); //判断Entry相等的条件是二维数组DATA中国家是否一样
+            }
 
-            public String getKey() { return DATA[index][0]; }
-            public String getValue() { return DATA[index][1]; }
-            public String setValue(String value) {
+            public String getKey() {
+                return DATA[index][0]; //key是国家
+            }
+
+            public String getValue() {
+                return DATA[index][1]; //value是首都
+            }
+
+            public String setValue(String value) { //不能写入
                 throw new UnsupportedOperationException();
             }
             public int hashCode() {
-                return DATA[index][0].hashCode();
+                return DATA[index][0].hashCode(); //国家字符串的hash
             }
         }
 
         /**
-         * FlyweightMap的静态内部类
+         * FlyweightMap的静态内部类EntrySet继承AbstractSet
          */
         // Use AbstractSet by implementing size() & iterator()
         static class EntrySet extends AbstractSet<Map.Entry<String,String>> {
@@ -198,11 +205,13 @@ public class Countries {
 
         private static Set<Map.Entry<String,String>> entries = new EntrySet(DATA.length);
 
+        //FlyweightMap实现的entrySet方法(这里Map.Entry不能去掉Map，因为自定义了一个私有静态内部类Entry)
         public Set<Map.Entry<String,String>> entrySet() {
             return entries;
         }
 
     }
+    //////////////////////////----------------------------------////////////////////////////////////
 
     // Create a partial map of 'size' countries:
     static Map<String,String> select(final int size) {
@@ -218,9 +227,11 @@ public class Countries {
     public static Map<String,String> capitals() {
         return map; // The entire map
     }
+
     public static Map<String,String> capitals(int size) {
         return select(size); // A partial map
     }
+
     static List<String> names = new ArrayList<String>(map.keySet());
 
     // All the names:
