@@ -12,4 +12,5 @@ public class StringAddress {
     public String toString() {
         return super.toString() + " " + s;
     }
+
 }
