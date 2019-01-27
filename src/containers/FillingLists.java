@@ -18,7 +18,7 @@ public class FillingLists {
         List<StringAddress> stringAddresses = Collections.nCopies(4, hello); //同样是填充的引用
         List<StringAddress> list= new ArrayList<StringAddress>(stringAddresses);
         System.out.println(list);
-        Collections.fill(list, new StringAddress("World!"));
+        Collections.fill(list, new StringAddress("World!")); //填充引用
         System.out.println(list);
     }
 
