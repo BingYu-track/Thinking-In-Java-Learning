@@ -251,7 +251,8 @@ public class Countries {
 
     // A partial list:
     public static List<String> names(int size) {
-        return new ArrayList<String>(select(size).keySet());
+        Set<String> keySet = select(size).keySet(); //这里在调用FlyweightMap的keySet()方法，实际就是调用AbstractMap的keySet()方法，里面调用了我们FlyweightMap实现的entrySet()方法和iterator()方法
+        return new ArrayList<String>(keySet);
     }
 
     public static void main(String[] args) {
