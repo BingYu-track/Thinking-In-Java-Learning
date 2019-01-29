@@ -193,7 +193,7 @@ public class Countries {
                 // Iterator持有的单一Entry对象
                 private Entry entry = new Entry(-1); //(此时index=-1)这个Entry是我们自定义的net.mindview.util.Countries.FlyweightMap.Entry
                 public boolean hasNext() {
-                    return entry.index < size - 1; //如果自定义Entry的index小于EntrySet最大索引数，判断还有元素
+                    return entry.index < size - 1; //如果自定义Entry的index小于EntrySet最大索引数，判断还有元素(该方法决定遍历的次数)
                 }
                 public Map.Entry<String,String> next() { //每次调用该next方法，Entry中的index都会自增使其指向下一个元素
                     entry.index++; //用于
