@@ -42,8 +42,8 @@ public class BorderMacher2 {
     public void test1(){
         String regex = "^1\\d{10}$";
         String regex1 = "1\\d{10}";
-        String s1 = "小明手机18311131865".replaceAll(regex, "Z");
-        String t1 = "小明手机18311131865".replaceAll(regex1, "Z");
+        String s1 = "小明手机18311131865".replaceAll(regex, "Z"); //用"Z"替换 字符串"小明手机18311131865"匹配给定的正则表达式regex的子字符串
+        String t1 = "小明手机18311131865".replaceAll(regex1, "Z"); //用"Z"替换 字符串"小明手机18311131865"匹配给定的正则表达式regex1的子字符串
         System.out.println("使用了^和&:"+s1); //小明手机18311131865
         System.out.println(t1); //小明手机Z
 
