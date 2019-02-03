@@ -29,22 +29,23 @@ public class Lists {
         // Add a collection starting at location 3: 将collection插入到索引为3的位置
         a.addAll(3, Countries.names(25));
         b = a.contains("1"); // Is it in there?
-        // Is the entire collection in there?
+        // Is the entire collection in there? 是否包含一个集合
         b = a.containsAll(Countries.names(25));
         // Lists allow random access, which is cheap for ArrayList, expensive for LinkedList:
-        s = a.get(1); // Get (typed) object at location 1
-        i = a.indexOf("1"); // Tell index of object
+        //List允许访问元素，ArrayList开销便宜，LinkedList开销昂贵
+        s = a.get(1); // Get (typed) object at location 1 获取索引为1位置上的元素
+        i = a.indexOf("1"); // Tell index of object 获取对象所在索引
         b = a.isEmpty(); // Any elements inside?
-        it = a.iterator(); // Ordinary Iterator
-        lit = a.listIterator(); // ListIterator
-        lit = a.listIterator(3); // Start at loc 3
-        i = a.lastIndexOf("1"); // Last match
+        it = a.iterator(); // Ordinary Iterator 获取普通迭代器
+        lit = a.listIterator(); // ListIterator 获取List迭代器
+        lit = a.listIterator(3); // Start at loc 3 从指定位置开始迭代
+        i = a.lastIndexOf("1"); // Last match 返回此列表中指定元素的最后一个匹配的索引
         a.remove(1); // Remove location 1
         a.remove("3"); // Remove this object
         a.set(1, "y"); // Set location 1 to "y"
-        // Keep everything that’s in the argument(the intersection of the two sets):
+        // Keep everything that’s in the argument(the intersection of the two sets): 取交集
         a.retainAll(Countries.names(25));
-        // Remove everything that’s in the argument:
+        // Remove everything that’s in the argument: //差集
         a.removeAll(Countries.names(25));
         i = a.size(); // How big is it?
         a.clear(); // Remove all elements
@@ -64,10 +65,10 @@ public class Lists {
     //iterator修改元素
     public static void iterManipulation(List<String> a) {
         ListIterator<String> it = a.listIterator();
-        it.add("47");
-        // Must move to an element after add():
+        it.add("47"); //从开头加入元素
+        // Must move to an element after add(): 必须在add()之后移动到元素
         it.next();
-        // Remove the element after the newly produced one:
+        // Remove the element after the newly produced one: 删除新生成的元素之后的元素。
         it.remove();
         // Must move to an element after remove():
         it.next();
@@ -106,16 +107,16 @@ public class Lists {
         LinkedList<String> ll = new LinkedList<String>();
         ll.addAll(Countries.names(25));
         print(ll);
-        // Treat it like a stack, pushing:
+        // Treat it like a stack, pushing: 像一个栈，向下压
         ll.addFirst("one");
         ll.addFirst("two");
         print(ll);
-        // Like "peeking" at the top of a stack:
+        // Like "peeking" at the top of a stack:.
         print(ll.getFirst());
         // Like popping a stack:
         print(ll.removeFirst());
         print(ll.removeFirst());
-        // Treat it like a queue, pulling elements off the tail end:
+        // Treat it like a queue, pulling elements off the tail end: 把它当作一个队列，从尾端拉出一些元素。
         print(ll.removeLast());
         print(ll);
     }
