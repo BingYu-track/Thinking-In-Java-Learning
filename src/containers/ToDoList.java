@@ -19,7 +19,7 @@ class ToDoList extends PriorityQueue<ToDoList.ToDoItem> {
             secondary = sec;
             item = td;
         }
-        //通过实现的Comparable接口而绝定了优先级队列的排序顺序
+        //通过实现的Comparable接口而决定了优先级队列的排序顺序
         public int compareTo(ToDoItem arg) {
             if(primary > arg.primary){ //先比较primary
                 return +1;
