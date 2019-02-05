@@ -17,6 +17,9 @@ class CountingMapData extends AbstractMap<Integer,String>{
         this.size = size;
     }
 
+    /**
+     * Entry中的方法主要
+     */
     private class Entry implements Map.Entry<Integer,String> {
         int index;
         Entry(int index) { this.index = index; }
@@ -34,7 +37,7 @@ class CountingMapData extends AbstractMap<Integer,String>{
             return Integer.valueOf(index).hashCode();
         }
     }
-
+    //主要
     class EntrySet extends AbstractSet<Map.Entry<Integer,String>> {
         public int size() {
             return size;
