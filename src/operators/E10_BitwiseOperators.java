@@ -23,7 +23,7 @@ public class E10_BitwiseOperators {
         print("i1 ^ i2 = " + Integer.toBinaryString(i1 ^ i2));
         //注意：Integer.toBinaryString()无法打印开头的0
 
-        boolean modified = true;
+        boolean modified = false;
         modified ^= true; //异或，即相同为0，不同为1
         System.out.println(modified);
         int i = 10;

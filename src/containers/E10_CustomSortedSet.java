@@ -10,15 +10,14 @@ import java.util.SortedSet;
  * @Description:  实现SortedSet的几个条件
  * 1.不需要支持额外的比较器，所以我们的SortedSet将使用元素的自然排序。
  * 2.集合将不能存放null
- * 3.我们不会为速度优化代码(
+ * 3.我们不会为速度优化代码
  * 4.我们的排序集将只有一个公共的无参构造。
  * @author: hxw
  * @date: 2019/2/3 17:48
  */
 public class E10_CustomSortedSet {
 
-    // The whole main() method is basically copy-pasted from
-    // containers/SortedSetDemo.java!
+    // The whole main() method is basically copy-pasted from containers/SortedSetDemo.java!
     public static void main(String[] args) {
         SortedSet<String> sortedSet = new CustomSortedSet<String>();
         Collections.addAll(
@@ -36,7 +35,7 @@ public class E10_CustomSortedSet {
             if (i == 6)
                 high = it.next();
             else
-                it.next();
+                it.next(); //注意，当i=3时，it执行了两次nect()方法
         }
         print(low);
         print(high);
