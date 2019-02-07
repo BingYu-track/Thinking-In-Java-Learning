@@ -10,9 +10,18 @@ import java.lang.ref.ReferenceQueue;
  * @author: hxw
  * @date: 2019/2/6 22:42
  */
-public class Test {
+public abstract class Test<C> {
 
-    public static void main(String[] args){
+    String name;
+    public Test(String name) {
+        this.name = name;
+    }
+
+    // Override this method for different tests.Returns actual number of repetitions of test.对不同的测试重写此方法。返回测试的实际重复次数。
+    abstract int test(C container, TestParam tp);
+
+
+    /*public static void main(String[] args){
         Object counter = new Object();
         System.out.println(counter);
         ReferenceQueue refQueue = new ReferenceQueue<>();
@@ -29,6 +38,6 @@ public class Test {
         } catch (InterruptedException e) {
             // Handle it
         }
-    }
+    }*/
 
 }
