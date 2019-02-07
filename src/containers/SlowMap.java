@@ -27,7 +27,7 @@ public class SlowMap<K,V> extends AbstractMap<K,V> {
     public V get(Object key) { // key is type Object, not K 这里参数key是Object类型，而不是K，这是因为这里的get(K)与‘java.util.DigactMap’中的‘get(Object)’冲突；这两种方法具有相同的擦除性
         if(!keys.contains(key))
             return null;
-        return values.get(keys.indexOf(key));
+        return values.get(keys.indexOf(key)); //这里明显是使用线性查询，而线性查询速度是最慢的
     }
 
 
