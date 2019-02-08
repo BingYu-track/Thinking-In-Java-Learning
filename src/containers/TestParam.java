@@ -8,8 +8,8 @@ package containers;
  */
 public class TestParam {
 
-    public final int size;
-    public final int loops;
+    public final int size; //容器中元素的数量
+    public final int loops; //测试的迭代次数
     public TestParam(int size, int loops) {
         this.size = size;
         this.loops = loops;

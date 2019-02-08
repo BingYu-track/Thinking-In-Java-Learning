@@ -12,12 +12,19 @@ import java.lang.ref.ReferenceQueue;
  */
 public abstract class Test<C> {
 
-    String name;
+    String name; //测试名
     public Test(String name) {
         this.name = name;
     }
 
     // Override this method for different tests.Returns actual number of repetitions of test.对不同的测试重写此方法。返回测试的实际重复次数。
+
+    /**
+     *
+     * @param container 待测容器
+     * @param tp 数据传输对象，用来保存特定测试的各种参数
+     * @return
+     */
     abstract int test(C container, TestParam tp);
 
 

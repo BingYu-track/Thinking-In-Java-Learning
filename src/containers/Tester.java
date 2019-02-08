@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * @version 1.0
- * @Description:
+ * @Description: 代码无法理解
  * @author: hxw
  * @date: 2019/2/8 3:25
  */
@@ -16,9 +16,9 @@ public class Tester<C> {
         return container;
     }
 
-    protected C container;
+    protected C container; //待测试的容器
     private String headline = "";
-    private List<Test<C>> tests;
+    private List<Test<C>> tests; //测试容器列表
 
     private static String stringField() {
         return "%" + fieldWidth + "s";
@@ -55,6 +55,7 @@ public class Tester<C> {
         new Tester<C>(cntnr, tests, paramList).timedTest();
     }
 
+    //这个方法是用来打印标题
     private void displayHeader() {
         // Calculate width and pad with ‘-’: 用“-”计算宽度和衬垫：
         int width = fieldWidth * tests.size() + sizeWidth;
@@ -80,16 +81,16 @@ public class Tester<C> {
     // Run the tests for this container:运行此容器的测试
     public void timedTest() {
         displayHeader();
-        for(TestParam param : paramList) {
+        for(TestParam param : paramList) { //遍历循环分别是size=10,100,1000,10000的执行情况
             System.out.format(sizeField, param.size);
-            for(Test<C> test : tests) {
-                C kontainer = initialize(param.size);
+            for(Test<C> test : tests) { //这里的tests是ListPerformance中的tests通过Tester的构造器传递过来的，代表一个待测试方法的列表
+                C kontainer = initialize(param.size); //这里在ListPerformance 的Array as List测试中使用匿名内部类重写了initialize方法，这里param.size是动态变化的10,100,1000,10000
                 long start = System.nanoTime();
                 // Call the overriden method: 调用重写的test方法
                 int reps = test.test(kontainer, param);
                 long duration = System.nanoTime() - start;
-                long timePerRep = duration / reps; // Nanoseconds
-                System.out.format(numberField(), timePerRep);
+                long timePerRep = duration / reps; // Nanoseconds 纳秒
+                System.out.format(numberField(), timePerRep); //花费时长
             }
             System.out.println();
         }
