@@ -56,7 +56,8 @@ public class SimpleHashMap<K,V> extends AbstractMap<K,V> {
     public Set<Map.Entry<K,V>> entrySet() {
         Set<Map.Entry<K,V>> set= new HashSet<Map.Entry<K,V>>();
         for(LinkedList<MapEntry<K,V>> bucket : buckets) { //遍历数组里所有的链表，将其所有的元素添加到st里
-            if(bucket == null) continue;
+            if(bucket == null)
+                continue;
             for(MapEntry<K,V> mpair : bucket) //
                 set.add(mpair);
         }
