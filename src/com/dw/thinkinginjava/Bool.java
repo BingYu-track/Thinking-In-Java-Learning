@@ -3,7 +3,7 @@ package com.dw.thinkinginjava;
 import java.util.Random;
 
 /**
- * 位运算总结
+ * 移位运算符总结
  */
 public class Bool {
 	
@@ -14,6 +14,9 @@ public class Bool {
 		System.out.println("i左移1位后的二进制："+Integer.toBinaryString(i << 1));//i左移1位后的二进制：1010
 		System.out.println("i左移2位后的二进制："+Integer.toBinaryString(i << 2));//i左移2位后的二进制：10100
 		System.out.println("-----------------------------------");
+		int g = 1;
+		System.out.println("g的二进制："+Integer.toBinaryString(g));
+		System.out.println("g有符号左移7位后的二进制："+Integer.toBinaryString(g << 7));//g有符号左移移7位后的二进制：10000000
 		
 		//有符号右移位操作符：>> 按照操作符右侧指定的位数将操作符左边的操作数向右移动；若操作数符号为正，则在高位插入0；若符号为负，则在高位插入1.
 		int j = 10;
