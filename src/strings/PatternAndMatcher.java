@@ -2,6 +2,7 @@ package strings;
 
 import org.junit.Test;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -18,7 +19,7 @@ public class PatternAndMatcher {
         String regex1 = ".+\\[.+\\]\\[.+\\].+\\[.+\\]\\[.+\\].+\\[.+\\]\\[.+\\].+"; //regex1符合字符串str整体匹配
         String str = "This is [google][1],this is [apple][2],and this is [ms][3],";
 
-        /*1.这里matches方法指的是全部匹配，是将整个输入串str与模式匹配regex，如果要验证一个输入的数据是否为数字类型或其他类型，一般要用matches()
+        /*1.这里matches方法指的是全部匹配而不是部分匹配，是将整个输入串str与模式匹配regex，如果要验证一个输入的数据是否为数字类型或其他类型，一般要用matches()
            等价于Pattern.compile(regex).matcher(input).matches()。
           2.find()方法是部分匹配，是查找输入串中与模式匹配的子串
         */
