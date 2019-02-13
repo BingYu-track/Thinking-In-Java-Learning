@@ -27,6 +27,13 @@ public class DirList {
             System.out.println(dirItem);
     }
 
+    /**
+     注意：java程序中的路径指的是，java命令执行时所在路径。用eclipse执行java程序，相当于如下命令行执行。
+     F:\Eclipse>java -classpath ./bin DirList 《Thinking in java》中应该指的是下面的执行方式。
+     F:\Eclipse\bin>java -classpath . DirList或者F:\Eclipse\bin>java DirList
+     两种方式，java命令执行时，所在的目录不同，结果自然不同。
+     */
+
     //使用正则作为参数
     @Test
     public void test(){
