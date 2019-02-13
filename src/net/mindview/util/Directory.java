@@ -17,10 +17,9 @@ import java.util.*;
 public final class Directory {
 
   /**
-   * 产生由本地目录中的文件审查的File对象数组
    * @param dir 文件目录
    * @param regex 正则
-   * @return
+   * @return 返回本地目录中满足过滤器的所有文件的File对象数组
    */
   public static File[] local(File dir, final String regex) {
     return dir.listFiles(   //使用 File 的  File[] listFiles(FilenameFilter filter)方法 --返回满足过滤器的抽象路径名数组
@@ -29,7 +28,7 @@ public final class Directory {
       public boolean accept(File dir, String name) {
         return pattern.matcher(new File(name).getName()).matches();
         //File的 public String getName()方法 返回由此抽象路径名表示的文件或目录的名称,如果路径名名称序列为空，则返回空字符串
-        //因此这里是用来对目录
+        //因此这里是用来对当前目录下所有的文件进行匹配
       }
     });
   }
@@ -72,17 +71,22 @@ public final class Directory {
     return recurseDirs(start, ".*");
   }
 
+  /**
+   * 获取开始目录下的所有子目录,以及其下面所有的文件(包括子目录下的文件)
+   * @param start
+   * @return
+   */
   public static TreeInfo walk(String start) {
     return recurseDirs(new File(start), ".*");
   }
-
+  //获取开始路径下的所有目录以及其子目录下的所有匹配的文件
   static TreeInfo recurseDirs(File startDir, String regex){
     TreeInfo result = new TreeInfo();
     for(File item : startDir.listFiles()) {
-      if(item.isDirectory()) {
-        result.dirs.add(item);
-        result.addAll(recurseDirs(item, regex));
-      } else if(item.getName().matches(regex)){
+      if(item.isDirectory()) { //是否是目录
+        result.dirs.add(item);  //是目录，将该目录放入result中
+        result.addAll(recurseDirs(item, regex)); //递归调用recurseDirs()，遍历当前for循环的目录
+      } else if(item.getName().matches(regex)){ //执行到这里说明是item是文件，而不是目录，开始判断该文件是否与正则匹配，匹配就存入result中
         result.files.add(item);
       }
     }
