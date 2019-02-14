@@ -82,7 +82,7 @@ public final class Directory {
   //获取开始路径下的所有目录以及其子目录下的所有匹配的文件
   static TreeInfo recurseDirs(File startDir, String regex){
     TreeInfo result = new TreeInfo();
-    for(File item : startDir.listFiles()) {
+    for(File item : startDir.listFiles()) { //获取当前目录下直接的File列表并遍历
       if(item.isDirectory()) { //是否是目录
         result.dirs.add(item);  //是目录，将该目录放入result中
         result.addAll(recurseDirs(item, regex)); //递归调用recurseDirs()，遍历当前for循环的目录
