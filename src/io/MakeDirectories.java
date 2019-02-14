@@ -1,5 +1,7 @@
 package io;
 
+import org.junit.Test;
+
 import java.io.File;
 
 /**
@@ -43,26 +45,26 @@ public class MakeDirectories {
         if(args.length < 1){
             usage();
         }
-        if(args[0].equals("-r")) { //如果args[0]=-r 并且参数列表长度不等于3
+        if(args[0].equals("-r")) { //如果args[0]=-r 并且参数列表长度不等于3,则调用usage退出程序
             if(args.length != 3) {
                 usage(); //
             }
-            File old = new File(args[1]), rname = new File(args[2]); //将
-            old.renameTo(rname);
+            File old = new File(args[1]), rname = new File(args[2]); //将第二，和第三个参数作为
+            boolean b = old.renameTo(rname); //将旧的File(文件或目录)重新命名
             fileData(old);
             fileData(rname);
             return; // Exit main
         }
         int count = 0; //
-        boolean del = false; //
+        boolean del = false; //删除标志
         if(args[0].equals("-d")) { //如果args[0] = -d 则
             count++;
             del = true;
         }
         count--;
-        while(++count < args.length) {
+        while(++count < args.length) { //count先自增，在比较
             File f = new File(args[count]); //用传入的参数创建File
-            if(f.exists()) { //文件是否存在
+            if(f.exists()) { //文件或目录是否存在
                 System.out.println(f + " exists");
                 if(del) { //del = true，删除该File
                     System.out.println("deleting..." + f);
@@ -78,4 +80,21 @@ public class MakeDirectories {
         }
     }
 
+    @Test
+    public void test1(){
+        File file = new File("D:\\Eclipse_Code\\ThinkInJava\\src\\io");
+        String absolutePath = file.getAbsolutePath();
+        System.out.println(absolutePath); // D:\Eclipse_Code\ThinkInJava\src\io
+        File parent = file.getParentFile();
+        System.out.println(parent.getName()); //src
+    }
+
+    @Test
+    public void test2(){
+        File file = new File("./DirectoryDemo.java");
+        String absolutePath = file.getAbsolutePath();
+        System.out.println(absolutePath); // D:\Eclipse_Code\ThinkInJava\src\io\.  与上面对比多一个.
+        File parent = file.getParentFile(); // null
+        System.out.println(parent.getName()); //报空指针异常
+    }
 }
