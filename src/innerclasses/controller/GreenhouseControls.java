@@ -9,21 +9,26 @@ public class GreenhouseControls extends Controller{
             super(delayTime);
         }
         public void action() { //开灯
-        // Put hardware control code here to
-        // physically turn on the light.
+        // Put hardware control code here to physically turn on the light.
             light = true;
         }
-        public String toString() { return "Light is on"; }
+        public String toString() {
+            return "Light is on";
+        }
     }
 
     public class LightOff extends Event {
-        public LightOff(long delayTime) { super(delayTime); }
+        public LightOff(long delayTime) {
+            super(delayTime);
+        }
         public void action() { //关灯
         // Put hardware control code here to
         // physically turn off the light.
             light = false;
         }
-        public String toString() { return "Light is off"; }
+        public String toString() {
+            return "Light is off";
+        }
     }
 
     private boolean water = false;
@@ -110,8 +115,14 @@ public class GreenhouseControls extends Controller{
     }
 
     public static class Terminate extends Event {
-        public Terminate(long delayTime) { super(delayTime); }
-        public void action() { System.exit(0); }
-        public String toString() { return "Terminating"; }
+        public Terminate(long delayTime) {
+            super(delayTime);
+        }
+        public void action() {
+            System.exit(0);
+        }
+        public String toString() {
+            return "Terminating";
+        }
     }
 }
