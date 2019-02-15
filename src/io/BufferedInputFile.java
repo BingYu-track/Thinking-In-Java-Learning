@@ -6,7 +6,7 @@ import java.io.IOException;
 
 /**
  * @version 1.0
- * @Description:
+ * @Description: 缓冲输入文件
  * @author: hxw
  * @date: 2019/2/15 16:14
  */
