@@ -3,6 +3,7 @@ package io;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * @version 1.0
@@ -91,10 +92,18 @@ public class MakeDirectories {
 
     @Test
     public void test2(){
-        File file = new File("./DirectoryDemo.java");
-        String absolutePath = file.getAbsolutePath();
+        File file = new File(".");
+        String absolutePath = file.getAbsolutePath(); //绝对路径名
         System.out.println(absolutePath); // D:\Eclipse_Code\ThinkInJava\src\io\.  与上面对比多一个.
         File parent = file.getParentFile(); // null
         System.out.println(parent.getName()); //报空指针异常
+    }
+
+    @Test
+    public void test3() throws IOException {
+        File file = new File(".");
+        File canonicalFile = file.getCanonicalFile();  //File file=new File(".")获取的是当前目录的相对路径，要先将其转为绝对路径，然后才能再获取其父目录
+        File parentFile = canonicalFile.getParentFile();
+        System.out.println(parentFile.getName()); //报空指针异常
     }
 }
