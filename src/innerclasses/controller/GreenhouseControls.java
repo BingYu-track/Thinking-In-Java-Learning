@@ -22,8 +22,7 @@ public class GreenhouseControls extends Controller{
             super(delayTime);
         }
         public void action() { //关灯
-        // Put hardware control code here to
-        // physically turn off the light.
+        // Put hardware control code here to physically turn off the light.
             light = false;
         }
         public String toString() {
@@ -93,14 +92,18 @@ public class GreenhouseControls extends Controller{
         public String toString() { return "Bing!"; }
     }
 
+    /**
+     * 用来储存所有的事件对象
+     */
     public class Restart extends Event {
-        private Event[] eventList;
+        private Event[] eventList; //内部类定义了Event数组
         public Restart(long delayTime, Event[] eventList) { //2000,eventList
             super(delayTime);
             this.eventList = eventList;
             for(Event e : eventList)
-                addEvent(e);  //调用外部类继承的方法
+                addEvent(e);  //调用外部类继承的方法，将Event数组里的元素添加到外部类父类的eventList
         }
+        //由于之前创建Restart对象时，eventList里的元素已经保存在了Restart的Event[]数组里，因此，这里action是重新将移除的元素添加进去
         public void action() {
             for(Event e : eventList) {
                 e.start(); // Rerun each event
@@ -114,12 +117,13 @@ public class GreenhouseControls extends Controller{
         }
     }
 
+    //停止
     public static class Terminate extends Event {
         public Terminate(long delayTime) {
             super(delayTime);
         }
         public void action() {
-            System.exit(0);
+            System.exit(0); //退出程序
         }
         public String toString() {
             return "Terminating";

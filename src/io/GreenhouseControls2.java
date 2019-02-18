@@ -10,7 +10,7 @@ import java.util.LinkedList;
 
 /**
  * @version 1.0
- * @Description:
+ * @Description: 从文本文件读取事件以及相关时间
  * @author: hxw
  * @date: 2019/2/15 17:28
  */
@@ -27,7 +27,7 @@ public class GreenhouseControls2 extends GreenhouseControls {
 
         public void action() {
             for(Event e : eventList) {
-                e.start(); // Rerun each event
+                e.start(); // Rerun each event 返回
                 addEvent(e);
             }
             start();
@@ -37,21 +37,19 @@ public class GreenhouseControls2 extends GreenhouseControls {
         public String toString() {
             return "Restarting system";
         }
-        public void setEventList(Event[] eventList) {
+        public void setEventList(Event[] eventList) { //这里对Event[]数组赋值
             this.eventList = eventList;
         }
 
     }
 
     /**
-     *
+     * 工厂模式 GHEventFactory内部类 ----事件工厂
      */
     class GHEventFactory {
         LinkedList<EventCreator> events = new LinkedList<EventCreator>();
 
-        /**
-         * GHEventFactory内部类
-         */
+
         class EventCreator {
             Constructor<Event> ctor;
             long offset;
@@ -66,15 +64,16 @@ public class GreenhouseControls2 extends GreenhouseControls {
             try {
                 BufferedReader in = new BufferedReader(new FileReader(eventFile));
                 String s;
-                while((s = in.readLine())!= null) {
-                    int colon = s.indexOf(':');
+                while((s = in.readLine())!= null) { //读取一行数据
+                    int colon = s.indexOf(':'); //获取':'所在字符串的位置
                     // Must use '$' instead of '.' to describe inner classes:
-                    String className = s.substring(0, colon).trim();
+                    String className = s.substring(0, colon).trim(); //获取配置文件里的事件类名
+                    //如果当前读取的配置文件中的行为Restart，则使用GreenhouseControls2.class，其它使用GreenhouseControls.class
                     Class<?> outer = className.equals("Restart") ? GreenhouseControls2.class : GreenhouseControls.class;
-                    String type = outer.getSimpleName() + "$" + className;
-                    long offset = Long.parseLong(s.substring(colon + 1).trim());
-                    // Use Reflection to find and call the right constructor:
-                    Class<Event> eventClass = (Class<Event>)Class.forName(type);
+                    String type = outer.getCanonicalName() + "$" + className; //拼接内部类名称
+                    long offset = Long.parseLong(s.substring(colon + 1).trim()); //将冒号后面的数字解析成long值
+                    // Use Reflection to find and call the right constructor: 通过反射根据类名获取事件的Class对象
+                    Class<Event> eventClass = (Class<Event>)Class.forName(type); //这里报错，因为不是全限定性类名
                     // Inner class constructors implicitly take the outer-class object as a first argument:
                     Constructor<Event> ctor = eventClass.getConstructor(new Class<?>[] { outer, long.class });
                     events.add(new EventCreator(ctor, offset));
@@ -115,9 +114,10 @@ public class GreenhouseControls2 extends GreenhouseControls {
 
     GHEventFactory gheFactory;
 
+    //构造器
     public GreenhouseControls2(String initFile) {
-        gheFactory = new GHEventFactory(initFile);
-        // Now we need some logic to setup the system.The restart event requires a special attention.
+        gheFactory = new GHEventFactory(initFile); //初始化事件工厂
+        // Now we need some logic to setup the system.The restart event requires a special attention. 现在我们需要一些逻辑来设置系统，重新启动事件需要特别注意
         LinkedList<Event> restartableEvents = new LinkedList<Event>();
         Iterator<Event> it = gheFactory.iterator();
         while(it.hasNext()) {
@@ -136,5 +136,7 @@ public class GreenhouseControls2 extends GreenhouseControls {
         }
     }
 
-
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class<Event> eventClass = (Class<Event>)Class.forName("GreenhouseControls$ThermostatNight");
+    }
 }

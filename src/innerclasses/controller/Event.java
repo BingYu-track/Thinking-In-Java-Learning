@@ -6,7 +6,7 @@ public abstract class Event {
     protected final long delayTime;
     public Event(long delayTime) {
         this.delayTime = delayTime;
-        start();
+        start(); //调用start()方法给eventTime赋值
     }
     public void start() { // Allows restarting
         eventTime = System.nanoTime() + delayTime; //触发时间 = 系统当前时间 + 延迟时间

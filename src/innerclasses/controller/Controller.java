@@ -11,15 +11,15 @@ public class Controller {
         eventList.add(c);
     }
     public void run() {
-        while(eventList.size() > 0)
-        // Make a copy so you’re not modifying the list
-        // while you’re selecting the elements in it:
+        while(eventList.size() > 0){ //事件列表大于0
+            // Make a copy so you’re not modifying the list while you’re selecting the elements in it:复制一份eventList，这样在选择列表中的元素时不会修改列表
             for(Event e : new ArrayList<Event>(eventList)){
                 if(e.ready()) { //当系统时间大于触发时间时，触发事件并从list移除该事件对象
                     System.out.println(e);
-                    e.action();
+                    e.action(); //执行完每个事件，要注意的是当执行到Restart事件时，
                     eventList.remove(e);
                 }
             }
+        }
     }
 }

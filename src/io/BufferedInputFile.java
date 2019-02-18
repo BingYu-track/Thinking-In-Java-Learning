@@ -6,7 +6,7 @@ import java.io.IOException;
 
 /**
  * @version 1.0
- * @Description: 缓冲输入文件
+ * @Description: 缓冲输入文件(将文件的内容输入到内存中)
  * @author: hxw
  * @date: 2019/2/15 16:14
  */

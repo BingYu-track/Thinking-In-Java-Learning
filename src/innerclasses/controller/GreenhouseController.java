@@ -16,7 +16,7 @@ public class GreenhouseController {
         };
         gc.addEvent(gc.new Restart(2000, eventList)); //设置延迟时间并将之前的所有事件和新创建的Restart也放进事件列表当中
         if(args.length == 1){
-            gc.addEvent(new GreenhouseControls.Terminate(new Integer(args[0]))); //创建嵌套内部类对象
+            gc.addEvent(new GreenhouseControls.Terminate(new Integer(args[0]))); //创建嵌套内部类对象Terminate
         }
         gc.run();
     }
