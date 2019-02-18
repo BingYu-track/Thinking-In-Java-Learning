@@ -75,7 +75,7 @@ public class GreenhouseControls2 extends GreenhouseControls {
                     // Use Reflection to find and call the right constructor: 通过反射根据类名获取事件的Class对象
                     Class<Event> eventClass = (Class<Event>)Class.forName(type); //这里报错，因为不是全限定性类名
                     // Inner class constructors implicitly take the outer-class object as a first argument:
-                    Constructor<Event> ctor = eventClass.getConstructor(new Class<?>[] { outer, long.class });
+                    Constructor<Event> ctor = eventClass.getConstructor( outer, long.class ); //注意：非静态上下文中声明的内部类，应该把外部包装类当做第一个参数，故此应该传入
                     events.add(new EventCreator(ctor, offset));
                 }
             } catch(Exception e) {
@@ -97,7 +97,7 @@ public class GreenhouseControls2 extends GreenhouseControls {
                     EventCreator ec = it.next();
                     Event returnVal = null;
                     try {
-                        returnVal = ec.ctor.newInstance(new Object[] {GreenhouseControls2.this, ec.offset});
+                        returnVal = ec.ctor.newInstance(GreenhouseControls2.this, ec.offset); //ec.ctor的外部类是GreenhouseControls，而GreenhouseControls2是它的子类，因此没问题
                     } catch(Exception e) {
                         throw new RuntimeException(e);
                     }
@@ -131,12 +131,20 @@ public class GreenhouseControls2 extends GreenhouseControls {
         while(it.hasNext()) {
             Event e = it.next();
             addEvent(e);
-            if(e instanceof Restart)
+            if(e instanceof Restart) //如果e对象是Restart类型，则将
                 ((Restart)e).setEventList(restartableEvents.toArray(new Event[0]));
         }
     }
 
-    public static void main(String[] args) throws ClassNotFoundException {
-        Class<Event> eventClass = (Class<Event>)Class.forName("GreenhouseControls$ThermostatNight");
+    //获取内部类的Constructor
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException {
+        Constructor<Event> constructor = null;
+        Class<Event> eventClass = (Class<Event>)Class.forName("innerclasses.controller.GreenhouseControls$ThermostatNight");
+        try{
+            constructor = eventClass.getConstructor(long.class);
+        }catch(NoSuchMethodException e){
+            //要获取非静态上下文中声明的内部类的Constructor，应该把外部包装类当做第一个参数，故此应该传入
+            constructor = eventClass.getConstructor(GreenhouseControls.class,long.class);
+        }
     }
 }

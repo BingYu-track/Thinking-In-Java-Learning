@@ -16,7 +16,7 @@ public class Controller {
             for(Event e : new ArrayList<Event>(eventList)){
                 if(e.ready()) { //当系统时间大于触发时间时，触发事件并从list移除该事件对象
                     System.out.println(e);
-                    e.action(); //执行完每个事件，要注意的是当执行到Restart事件时，
+                    e.action(); //执行完每个事件，要注意的是当执行到Restart事件时，会把之前所有的事件再次放入eventList里面，导致后面会不断执行，直到添加了GreenhouseControls.Terminate
                     eventList.remove(e);
                 }
             }
