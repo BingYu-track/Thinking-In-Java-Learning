@@ -141,9 +141,9 @@ public class GreenhouseControls2 extends GreenhouseControls {
         Constructor<Event> constructor = null;
         Class<Event> eventClass = (Class<Event>)Class.forName("innerclasses.controller.GreenhouseControls$ThermostatNight");
         try{
-            constructor = eventClass.getConstructor(long.class);
+            constructor = eventClass.getConstructor(long.class); //ERROR
         }catch(NoSuchMethodException e){
-            //要获取非静态上下文中声明的内部类的Constructor，应该把外部包装类当做第一个参数，故此应该传入
+            //要获取非静态上下文中声明的内部类的Constructor，应该把外部包装类当做第一个参数，故此应该传入外部类的class对象GreenhouseControls.class
             constructor = eventClass.getConstructor(GreenhouseControls.class,long.class);
         }
     }
