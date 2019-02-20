@@ -19,7 +19,7 @@ public class FileOutputShortcut {
         StringReader stringReader = new StringReader(s1);
         BufferedReader in = new BufferedReader(stringReader);
         // Here’s the shortcut:
-        PrintWriter out = new PrintWriter(file); //PrintWriter有直接传入文件名的构造器，内部其实仍然是用文件流和处理流封装过的
+        PrintWriter out = new PrintWriter(file); //PrintWriter大多数构造器，内部其实仍然是用文件流和缓冲流封装过的，但PrintWriter(Writer out) 除外
         int lineCount = 1;
         String s;
         while((s = in.readLine()) != null )

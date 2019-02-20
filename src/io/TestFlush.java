@@ -41,7 +41,7 @@ public class TestFlush {
         String s = "Hello World";
         try {
             // create a new stream at specified file
-            PrintWriter pw = new PrintWriter(System.out);
+            PrintWriter pw = new PrintWriter(System.out); //注意：其实这里创建的PrintWriter之所以有缓冲，其实在该构造器中传入的字节流后已经调用了BufferReader
             // write the string in the file
             pw.write(s);
             pw.close(); //发现使用close()同样能看到结果
