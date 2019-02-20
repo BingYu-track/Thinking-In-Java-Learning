@@ -15,6 +15,7 @@ import java.util.ListIterator;
  */
 public class E07_FileIntoList {
 
+    //读取文件每一个行作为字符串，放入LinkedList中
     public static List<String> read(String filename) throws IOException{
         LinkedList<String> list = new LinkedList<>();
         BufferedReader in = new BufferedReader(new FileReader(filename));
