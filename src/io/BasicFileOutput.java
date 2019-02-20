@@ -26,8 +26,12 @@ public class BasicFileOutput {
         int lineCount = 1;
         String s;
         while((s = in.readLine()) != null ) //这里BufferedReader读取一行，然后用下面PrintWriter写入时加上行号
-            out.println(lineCount++ + ": " + s);
-        out.close(); //关闭该流并释放与之关联的所有系统资源  问题：为什么注释这行代码，下面BufferedReader就读不到数据了？
+            out.println(lineCount++ + ": " + s); //必须注意：这里写入到的不是文件，而是写到缓冲区里
+        out.close(); //关闭该流并释放与之关联的所有系统资源，会把缓冲区里的所有数据强制写出  问题：为什么注释这行代码，下面BufferedReader就读不到数据了?
+
+        //答：因为java在使用流时,都会有一个缓冲区:把要发的数据先放到缓冲区,缓冲区放满以后再一次性发过去,而不是分开一次一次地发.
+        //而flush()表示强制将缓冲区中的数据发送出去,不必等到缓冲区满.如果这里不调用close()方法，也就不会把缓冲区中的数据发出去，
+        // 文件里面之间的数据就被覆盖，变成空文件了，因此后面的BufferedReader就读不到数据了
         // Show the stored file:
         System.out.println(BufferedInputFile.read(file));
     }
