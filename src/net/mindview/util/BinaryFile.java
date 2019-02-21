@@ -3,10 +3,13 @@
 package net.mindview.util;
 import java.io.*;
 
+/**
+ * 读取二进制文件
+ */
 public class BinaryFile {
+
   public static byte[] read(File bFile) throws IOException{
-    BufferedInputStream bf = new BufferedInputStream(
-      new FileInputStream(bFile));
+    BufferedInputStream bf = new BufferedInputStream(new FileInputStream(bFile));
     try {
       byte[] data = new byte[bf.available()];
       bf.read(data);
@@ -15,8 +18,9 @@ public class BinaryFile {
       bf.close();
     }
   }
-  public static byte[]
-  read(String bFile) throws IOException {
+
+  public static byte[] read(String bFile) throws IOException {
     return read(new File(bFile).getAbsoluteFile());
   }
+
 } ///:~
