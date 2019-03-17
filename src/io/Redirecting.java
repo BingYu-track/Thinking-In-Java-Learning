@@ -18,12 +18,12 @@ public class Redirecting {
         PrintStream out = new PrintStream(
                             new BufferedOutputStream(
                                 new FileOutputStream("test.out")));
-        System.setIn(in); //System.in重定向到文件Redirecting.java输入，改变了数据的来源
-        System.setOut(out); //System.out也重定向到了文件test.out输出(改变前默认输出到控制台)
+        System.setIn(in); //System.in重定向到文件Redirecting.java输入，改变了数据的来源(本来是要从键盘获得输入)
+        System.setOut(out); //System.out也重定向到了文件test.out输出(本来是默认输出到控制台)
         System.setErr(out);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String s;
-        br.mark((int) file.length()); //标记文件的开头 mark(int readAheadLimit)  readAheadLimit是指在当前位置前面多少位置
+        br.mark((int) file.length()); //首先标记文件的开头 mark(int readAheadLimit)  readAheadLimit是指在当前位置前面多少位置
         while((s = br.readLine()) != null){
             System.out.println(s); //因此这里输出的时候，控制台就不会打印出来
         }
@@ -34,4 +34,5 @@ public class Redirecting {
             System.out.println(s); //这里输出的时候，控制台就会打印出来
         }
     }
+    //总的来说System.setIn()，System.setOut()就是改变输入源，输出位置，使用到BufferedReader.reset()和mark(int readAheadLimit)方法
 }
