@@ -18,7 +18,7 @@ public class BasicFileOutput {
         StringReader stringReader = new StringReader(s1);
         //
         BufferedReader in = new BufferedReader(stringReader);
-        //创建文件
+        //这里定义写的最终目的地到文件
         FileWriter fileWriter = new FileWriter(file);
         //使用BufferedWriter包装的含义是用缓冲输出，增加IO性能,再用PrintWriter包装提升格式,如果不用PrintWriter，则所有字符串都写到一行去了
         BufferedWriter bw = new BufferedWriter(fileWriter);

@@ -4,7 +4,7 @@ import java.io.*;
 
 /**
  * @version 1.0
- * @Description: 标准IO重定向，ava的标准输入/输出分别通过System.in和System.out来代表，在默认的情况下分别代表键盘和显示器，
+ * @Description: 标准IO重定向，Java的标准输入/输出分别通过System.in和System.out来代表，在默认的情况下分别代表键盘和显示器，
  * 当程序通过System.in来获得输入时，实际上是通过键盘获得输入。当程序通过System.out执行输出时，程序总是输出到屏幕，下面的代码将System.in重定向到文件输入，所以将不接受键盘输入
  * @author: hxw
  * @date: 2019/2/24 15:19

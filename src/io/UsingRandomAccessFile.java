@@ -30,7 +30,7 @@ public class UsingRandomAccessFile {
         }
         rf.writeUTF("The end of the file");
         rf.close();
-        display();
+        display(); //遍历double数据
         rf = new RandomAccessFile(file, "rw");
         rf.seek(5*8); //注意这里5*8指的是字节数，一个double是8个字节；直接将文件指针移到第5个double数据后面 即5.656后面，
         rf.writeDouble(47.0001); //覆盖第6个double数据,即把7.069999999999999替换成了47.0001

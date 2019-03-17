@@ -21,7 +21,7 @@ public class E14_BufferPerformance {
         PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file)));
         int lineCount = 1;
         long t1 = System.currentTimeMillis();
-        for(String s : list) { //每一行输出1万遍
+        for(String s : list) { //带缓冲区，每一行输出1万遍
             for(int i = 0; i < 10000; i++){
                 out.println(lineCount + ": " + s);
             }
@@ -34,7 +34,7 @@ public class E14_BufferPerformance {
         out = new PrintWriter(new FileWriter(file));
         lineCount = 1;
         t1 = System.currentTimeMillis();
-        for(String s : list) {
+        for(String s : list) { //不带缓冲区
             for(int i = 0; i < 10000; i++){
                 out.println(lineCount + ": " + s);
             }
