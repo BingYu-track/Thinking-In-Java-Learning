@@ -27,7 +27,7 @@ public class ProcessTest2 {
         /** 创建ProcessBuilder对象，设置指令列表*/
         ProcessBuilder processBuilder = new ProcessBuilder(paramList);
 
-        //获取桌面路径，如：C:\Users\Administrator.SC-201707281232\Desktop
+        //获取桌面路径
         File desktopFile = FileSystemView.getFileSystemView().getHomeDirectory();
 
         //创建子进程输出信息的存放文件，文件不存在时，会自动创建

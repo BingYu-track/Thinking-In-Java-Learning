@@ -22,7 +22,7 @@ public class ProcessTest {
             //启动 windows 上安装好的 Media Player 播放器，设置 exe 路径，路径必须存在
             paramList.add("C:\\Program Files\\Windows Media Player\\wmplayer.exe");
             //设置 Media Player 将要播放的文件，也就是给 Media Player 传递的参数，文件必须存在
-            paramList.add("E:\\娱乐\\视频\\泡泡浴\\JVID顶级女神之夜火辣泡泡浴 [MP4-659MB]\\JVID顶级女神之夜火辣泡泡浴.mp4");
+            paramList.add("C:\\Users\\hxw\\Desktop\\技术文献\\java技术视频\\Java Programming.mp4");
             /** 创建ProcessBuilder对象，设置指令列表*/
             ProcessBuilder processBuilder = new ProcessBuilder(paramList);
             logger.info("启动子进程...");
