@@ -31,7 +31,7 @@ public class HashCodeTest {
         输出结果：
         x:1,y:1 hashCode: 1735600054
         x:1,y:1 hashCode: 356573597
-        可以看出，equals方法相同，并不能说明hashCode相同
+        可以看出只重写了equals，没有重写hashCode，equals方法相同，并不能说明hashCode相同
         */
     }
 
