@@ -14,6 +14,9 @@ public class MyTest {
 		list.add(4);
 		list.add(5);
 		System.out.println(list);
+		for (Integer i : list) {
+			list.remove(i);
+		}
 	}
 	
 
