@@ -33,7 +33,7 @@ public class GetChannel {
         fc = new FileInputStream("data.txt").getChannel(); //获取从data.txt读取的通道
         ByteBuffer buff = ByteBuffer.allocate(BSIZE); //分配一个新的缓冲区，注意ByteBuffer是一个抽象类，无法new对象，
         // 内部使用的HeapByteBuffer实现类，是一个数组，此时 position=0 ,limit=capacity=1024
-        fc.read(buff); //将通道的数据先填充到缓冲区，此时 position=19 ,limit=capacity=1024
+        int read = fc.read(buff);//通过通道将data.txt文件的数据填充到缓冲区，此时position=19 ,limit=capacity=1024
         buff.flip(); //(将Buffer从写模式切换到读模式必须调用flip方法) 切换到读模式，因为下面要用Buffer的get()读取数据flip()继承自Buffer这个抽象类
         //执行flip()方法后，position=0 ,limit=19 ,capacity=1024
         while(buff.hasRemaining()){ //hasRemaining()这里是判断是否position < limit，position不再小于limit，说明中间没有剩余元素了
