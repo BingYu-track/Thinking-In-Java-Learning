@@ -1,6 +1,9 @@
 package io.bio;
 
 import java.io.*;
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @version 1.0
@@ -21,5 +24,6 @@ public class BioTest {
             count +=size;
         }
         System.out.println(count);
+        new ReentrantLock().lock();
     }
 }
