@@ -1,4 +1,6 @@
 package operators;
+import org.junit.Test;
+
 import static net.mindview.util.Print.*;
 /**
  * @version 1.0
@@ -32,4 +34,17 @@ public class E10_BitwiseOperators {
         i &= 2;
         System.out.println("1|2 :"+i);
     }
+
+    @Test
+    public void test(){
+        System.out.println(Integer.toBinaryString(53));
+        System.out.println("逻辑右移: "+Integer.toBinaryString(53>>>1)); //11010
+        System.out.println("算术右移： "+ Integer.toBinaryString(53>>1)); //11010
+        System.out.println(Integer.toBinaryString(-53)); //11111111111111111111111111001011
+        System.out.println("逻辑右移: "+Integer.toBinaryString(-53>>>1)); //1111111111111111111111111100101  逻辑右移一位，左边符号位补0
+        System.out.println("算术右移: "+Integer.toBinaryString(-53>>1));  //11111111111111111111111111100101 算术右移一位，
+    }
+
+
+
 }
