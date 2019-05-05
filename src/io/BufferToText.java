@@ -28,11 +28,12 @@ public class BufferToText {
         System.out.println(buff.asCharBuffer()); //直接使用CharBuffer的toString()输出乱码
         // Decode using this system’s default Charset:
         buff.rewind(); //这里position=0 ,limit=capacity，回到开头位置，重新读取
-        String encoding = System.getProperty("file.encoding");
-        System.out.println("Decoded using " + encoding + ": " + Charset.forName(encoding).decode(buff));
+        String encoding = System.getProperty("file.encoding");//获取当前默认的字符集
+        System.out.println("Decoded using " + encoding + ": " + Charset.forName(encoding).decode(buff)); //这里输出时使用了Charset对buff里面的内容进行了解码
+
         // Or, we could encode with something that will print:
         fc = new FileOutputStream("data2.txt").getChannel();
-        fc.write(ByteBuffer.wrap("Some text".getBytes("UTF-16BE"))); //使用了指定的字符集
+        fc.write(ByteBuffer.wrap("Some text".getBytes("UTF-16BE"))); //写入文件时指定了字符编码
         fc.close();
         // Now try reading again:
         fc = new FileInputStream("data2.txt").getChannel();
@@ -40,6 +41,7 @@ public class BufferToText {
         fc.read(buff);
         buff.flip();
         System.out.println(buff.asCharBuffer()); //现在可以正常的输出字符串
+
         // Use a CharBuffer to write through:
         fc = new FileOutputStream("data2.txt").getChannel(); //发现每次获取输出通道Channel，文件内容都会被清空
         buff = ByteBuffer.allocate(24); // More than needed
@@ -53,5 +55,5 @@ public class BufferToText {
         buff.flip();
         System.out.println(buff.asCharBuffer());
     }
-
+    //总结：缓冲器ByteBuffer容纳的是普通字节，要装换成字符，要么进Buffer时进行编码，要么从buffer出来时进行解码
 }
