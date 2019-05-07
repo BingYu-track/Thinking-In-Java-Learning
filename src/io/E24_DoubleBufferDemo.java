@@ -5,7 +5,7 @@ import java.nio.DoubleBuffer;
 
 /**
  * @version 1.0
- * @Description:
+ * @Description: ByteBuffer除了可以存储各种不同的基本类型数据外，还可以通过各种不同类型的Buffer视图将数据读取出来
  * @author: bingyu
  * @date: 2019/5/7 21:55
  */

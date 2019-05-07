@@ -7,7 +7,7 @@ import static net.mindview.util.Print.printnb;
 
 /**
  * @version 1.0
- * @Description:
+ * @Description: 各个基本数据类型在byteBuffer里的存储形式
  * @author: bingyu
  * @date: 2019/5/7 21:38
  */
