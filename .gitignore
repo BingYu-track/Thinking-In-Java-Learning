@@ -1,5 +1,8 @@
-/bin/
-/.idea/*
-/.settings/
+*.jar
+*.war
+*.ear
 *.iml
+.idea
+.gradle
+*/target/
 
