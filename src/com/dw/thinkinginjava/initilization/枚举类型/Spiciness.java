@@ -1,7 +1,7 @@
 package com.dw.thinkinginjava.initilization.枚举类型;
 
 public enum Spiciness {
-    NOT,MILD,MEDIUM,HOT,FFLAMING;
+    NOT,MILD,MEDIUM,HOT,FLAMING;
 
     @Override
     public String toString() {
