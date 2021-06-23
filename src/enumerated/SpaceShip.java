@@ -2,7 +2,7 @@ package enumerated;
 
 /**
  * @version 1.0
- * @Description: 覆盖枚举的toString方法
+ * @Description: 覆盖枚举的toString方法和一般类没任何区别
  * @author: bingyu
  * @date: 2021/6/21
  */

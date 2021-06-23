@@ -35,7 +35,7 @@ public class Reflection {
         exploreMethods.removeAll(enumMethods);
         print(exploreMethods);
         // Decompile the code for the enum:
-        OSExecute.command("javap Explore"); //反编译
+        OSExecute.command("javap Explore"); //反编译Explore.class文件
     }
 
     //输出内容，会发现我们自己创建的枚举类比Enum.java类要多一个values方法，通过使用javap反编译Explore.class文件
