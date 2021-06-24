@@ -1,5 +1,4 @@
 package enumerated.menu;
-
 /**
  * @version 1.0
  * @Description:

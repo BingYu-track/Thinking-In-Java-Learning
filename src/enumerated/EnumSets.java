@@ -25,5 +25,7 @@ public class EnumSets {
         print(points);
         points = EnumSet.complementOf(points); //complementOf()方法是会先创建一个我们指定相同的enum Set,然后会初始化不包含这个enum Set的所有的枚举Set
         print(points);
+
+        //EnumSet的基础是long,long的其中一位表示enum中的一个实例
     }
 }
