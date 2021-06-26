@@ -12,6 +12,7 @@ interface Command { void action(); }  //映入
 public class EnumMaps {
 
     public static void main(String[] args) {
+        //创建时自动key的类型，注意EnumMap没有空构造器，必须指定key的类型
         EnumMap<AlarmPoints,Command> em = new EnumMap<AlarmPoints,Command>(AlarmPoints.class);
 
         em.put(KITCHEN, new Command() {
