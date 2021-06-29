@@ -5,7 +5,7 @@ import net.mindview.atunit.Test;
 import java.lang.annotation.*;
 /**
  * @version 1.0
- * @Description: 自定义注解，以及注解中允许的出现的类型
+ * @Description: 自定义注解
  * @author: bingyu
  * @date: 2021/6/26
  */
@@ -14,21 +14,9 @@ import java.lang.annotation.*;
 public @interface UseCase { //注解也会被编译成.class文件，自定义注解是需要元注解的
 
 
-
-    public int id();
+    //注解的参数: 参数类型 + 参数名()
+    public int id(); //还有，如果注解参数没有定义默认值，则使用时，必须给该参数赋值，否则编译器就会报错
+    //注意，这里不要理解成方法了
     public String description() default "no description";
-    public short id2();
-    public float id3();
-    public boolean id4();
-    public long id5();
-    public Outcome id6(); //枚举
-    public Class id7(); //Class
-    public Test id8(); //注解
 
-
-    //public Object id(); //报错，不能用Object类型作为注解的元素
-
-    //包装类型均不能作为注解的元素
-//    public Long id9();
-//    public Integer id10();
 }
