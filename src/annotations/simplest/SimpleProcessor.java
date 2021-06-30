@@ -26,19 +26,19 @@ public class SimpleProcessor extends AbstractProcessor{
         return false;
     }
 
-    private void display(Element el) { //el.getModifiers()是否为 public 和 static 的
+    private void display(Element el) { //el是被@Simple注解的元素
         System.out.println("==== " + el + " ====");
         System.out.println(el.getKind() +  //返回元素的类型
-                " : " + el.getModifiers() +  //返回元素的修饰符
+                " : " + el.getModifiers() +  //返回元素的修饰符 el.getModifiers()是否为 public 和 static 的
                 " : " + el.getSimpleName() + //返回元素简单名称
                 " : " + el.asType()); //返回由此元素定义的类型
-        if(el.getKind().equals(ElementKind.CLASS)) {
+        if(el.getKind().equals(ElementKind.CLASS)) { //如果被@Simple注解的元素是一个类
             TypeElement te = (TypeElement)el; //TypeElement表示一个类或接口程序元素
             System.out.println(te.getQualifiedName());
             System.out.println(te.getSuperclass());
             System.out.println(te.getEnclosedElements()); //返回在此类或接口中直接声明的字段、方法、构造函数和成员类型。
         }
-        if(el.getKind().equals(ElementKind.METHOD)) {
+        if(el.getKind().equals(ElementKind.METHOD)) { //如果被@Simple注解的元素是一个方法
             ExecutableElement ex = (ExecutableElement)el; //ExecutableElement表示某个类或接口的方法、构造方法或初始化程序（静态或实例），包括注解类型元素
             System.out.print(ex.getReturnType() + " ");
             System.out.print(ex.getSimpleName() + "("); //返回方法名
