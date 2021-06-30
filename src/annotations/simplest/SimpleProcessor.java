@@ -5,22 +5,22 @@ import javax.lang.model.element.*;
 import java.util.*;
 /**
  * @version 1.0
- * @Description:
+ * @Description: 使用javac处理处理注解
  * @author: bingyu
  * @date: 2021/6/29
  */
-@SupportedAnnotationTypes("annotations.simplest.Simple") //指定包的路径
+@SupportedAnnotationTypes({"annotations.simplest.Simple"}) //@SupportedAnnotationTypes用于指定注解处理器要处理的注解类型
 @SupportedSourceVersion(SourceVersion.RELEASE_8) //选择java8的源代码版本
 public class SimpleProcessor extends AbstractProcessor{
 
 
-    //第一个参数告诉你哪个注解是存在的，第二个参数保留了剩余信息
+    //第一个参数告诉你哪个注解是存在的，第二个参数保留了剩余信息，你可以在这个方法里面编码实现扫描，处理注解，生成 java 文件
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment env) {
         for(TypeElement t : annotations) {
             System.out.println(t);
         }
-        for(Element el : env.getElementsAnnotatedWith(Simple.class)) {
+        for(Element el : env.getElementsAnnotatedWith(Simple.class)) { //循环每一个被@Simple注解的元素，并调用display方法
             display(el);
         }
         return false;
@@ -46,5 +46,33 @@ public class SimpleProcessor extends AbstractProcessor{
         }
     }
 
+    /**
+     通过 javac，你可以通过创建编译时（compile-time）注解处理器在 Java 源文件上使用注解
+     每一个你编写的注解都需要处理器，但是 javac 可以非常容易的将多个注解处理器合并在一起。
+     你可以指定多个需要处理的类，并且你可以添加监听器用于监听注解处理完成后接到通知
+     */
 
+    //javac -processor annotations.simplest.SimpleProcessor SimpleTest.java
+    //javac -processor annotations.simplest.SimpleProcessor -encoding UTF-8 d:\Eclipse_Code\src\annotations\simplest\SimpleTest.java
+    //要把处理的注解simple.class文件和注解处理器的SimpleProcessor.class文件放在当前执行命令目录下才能正常执行命令
+/*
+==== annotations.simplest.SimpleTest ====
+    CLASS : [public] : SimpleTest : annotations.simplest.SimpleTest
+    annotations.simplest.SimpleTest
+    java.lang.Object
+    i,SimpleTest(),foo(),bar(java.lang.String,int,float),main(java.lang.String[])
+            ==== i ====
+    FIELD : [] : i : int
+==== SimpleTest() ====
+    CONSTRUCTOR : [public] : <init> : ()void
+==== foo() ====
+    METHOD : [public] : foo : ()void
+    void foo()
+==== bar(java.lang.String,int,float) ====
+    METHOD : [public] : bar : (java.lang.String,int,float)void
+    void bar(s,i,f)
+==== main(java.lang.String[]) ====
+    METHOD : [public, static] : main : (java.lang.String[])void
+    void main(args)
+    */
 }
