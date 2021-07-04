@@ -100,7 +100,7 @@ public class IfaceExtractorProcessor extends AbstractProcessor {
     因此你执行后面这个命令就不会成功javac -processor annotations.ifx.IfaceExtractorProcessor -encoding UTF-8 Multiplier.java
     在src/annotations/ifx目录执行,报找不到注解处理程序 'annotations.ifx.IfaceExtractorProcessor'
     目前不明白作者用javac -processor annotations.ifx.IfaceExtractorProcessor Multiplier.java命令是怎么执行成功的
-
+javac -processor IfaceExtractorProcessor -encoding UTF-8 Multiplier.java
 
     问题2(在src/annotations/ifx目录下创建了annotations.ifx包路径后再执行):
     > src/annotations/ifx javac -processor annotations.ifx.IfaceExtractorProcessor -encoding UTF-8 Multiplier.java
